@@ -11,10 +11,18 @@
       vidaLetter: 'V — Vida (Reconocer tu estado y bajar el ruido)',
       weekLabel: 'Semana 1 · Orden mental y calma',
       toolName: 'Descarga mental de 3 minutos',
-      strengthCopy: 'Tu mente tiene espacio para pensar con calma. Cuando hay claridad arriba, el resto del día pesa mucho menos.',
-      priorityCopy: 'Hoy tu cabeza está cargando demasiados pendientes al mismo tiempo. Antes de intentar hacer más, necesitas vaciar ruido.',
+      strengthCopy: 'Tu mente tiene espacio para pensar con calma. Cuando hay claridad arriba, las decisiones diarias pesan mucho menos y no te saturas con facilidad.',
+      strengthTip: 'Aprovecha esta claridad para ponerle orden primero a las áreas que hoy te cuestan más, sin exigirte perfección.',
+      priorityCopy: 'Hoy tu cabeza está cargando demasiados pendientes y preocupaciones al mismo tiempo. Antes de intentar hacer más cosas, necesitas vaciar el ruido mental.',
+      priorityWhy: 'Cuando la mente está saturada, todo se siente el doble de pesado: te cuesta concentrarte, duermes peor y cualquier imprevisto te drena.',
       microAction: 'Toma una hoja o nota del teléfono y escribe durante 3 minutos todo lo que tienes dando vueltas en la cabeza, sin ordenarlo ni filtrarlo. Luego subraya solo 2 cosas que sí importan hoy.',
-      quote: '“Lo que escribo dejo de cargarlo.”'
+      microActionWhy: 'Al pasar tus pendientes al papel, tu cerebro deja de repetirlos en círculo para “no olvidarlos” y baja la tensión casi de inmediato.',
+      quote: '“Lo que escribo dejo de cargarlo.”',
+      bandCopy: {
+        low: 'Tu mente trae mucho ruido y pendientes acumulados; vaciarla en papel te dará alivio rápido.',
+        mid: 'Alternas ratos de claridad con momentos de saturación o distracciones con el celular.',
+        high: 'Mantienes buena calma mental, enfoque y capacidad para poner límites.'
+      }
     },
     {
       id: 'tiempo',
@@ -24,10 +32,18 @@
       vidaLetter: 'D — Dirección (Ordenar prioridades sin saturarte)',
       weekLabel: 'Semana 2 · Productividad simple',
       toolName: 'Tu Día Base',
-      strengthCopy: 'Tienes una buena noción de tus prioridades y logras darle forma a tu día sin vivir apagando incendios.',
-      priorityCopy: 'Sientes que el día se te escapa entre urgencias o improvisación. No necesitas una agenda perfecta; necesitas un esqueleto simple que te sostenga.',
+      strengthCopy: 'Tienes una buena noción de tus prioridades y logras darle forma a tu día sin vivir apagando incendios a cada hora.',
+      strengthTip: 'Usa este buen sentido de orden para reservar un pequeño bloque fijo a tu área prioritaria cada semana.',
+      priorityCopy: 'Sientes que el día se te escapa entre urgencias, prisas o improvisación. No necesitas una agenda rígida ni perfecta; necesitas un esqueleto simple que te sostenga.',
+      priorityWhy: 'Sin 2 o 3 prioridades claras al arrancar, terminas muy ocupado al final del día pero con la sensación frustrante de no haber avanzado en lo importante.',
       microAction: 'Define hoy solo 3 momentos ancla para mañana: qué haces los primeros 10 minutos al despertar, cuál será tu prioridad número 1 y a qué hora cierras tus pendientes.',
-      quote: '“Un día ordenado no es perfecto. Es un día donde tú llevas el volante.”'
+      microActionWhy: 'Tener 3 puntos fijos en el día elimina la sensación de caos y te devuelve el control sin sentirte encerrado en un horario estricto.',
+      quote: '“Un día ordenado no es perfecto. Es un día donde tú llevas el volante.”',
+      bandCopy: {
+        low: 'El día te está llevando con prisas e improvisación; necesitas 2 o 3 prioridades simples.',
+        mid: 'Algunos días fluyen bien, pero en otros pierdes el ritmo entre urgencias.',
+        high: 'Llevas buen control de tus mañanas, tus prioridades y el ritmo de tu semana.'
+      }
     },
     {
       id: 'energia',
@@ -37,10 +53,18 @@
       vidaLetter: 'I — Intención (Cuidar lo que te sostiene)',
       weekLabel: 'Semana 1 y 4 · Descanso real y Hoja SOS',
       toolName: 'Descanso real de 10 minutos',
-      strengthCopy: 'Cuidas tu descanso y reconoces cuándo parar. Esa energía estable es el combustible que te permite avanzar.',
-      priorityCopy: 'Tu cansancio no siempre viene de hacer demasiado, sino de no tener pausas verdaderas ni límites claros con las pantallas.',
-      microAction: 'Regálate hoy 10 minutos de descanso verdadero: sin celular, sin televisión y sin hacer dos cosas a la vez. Respira, camina o simplemente quédate en silencio.',
-      quote: '“Descansar no es dejar de trabajar; es recuperar claridad.”'
+      strengthCopy: 'Cuidas tu descanso y sabes reconocer cuándo parar. Esa energía estable es el combustible que te permite rendir sin agotarte.',
+      strengthTip: 'Protege tus horas de sueño y pausas sin pantalla: son la base que sostiene todo lo demás en tu semana.',
+      priorityCopy: 'Tu cansancio no siempre viene de hacer demasiado, sino de no darte pausas verdaderas, dormir poco o descansar pegado a las pantallas.',
+      priorityWhy: 'Cuando la pila está baja, incluso las tareas fáciles se sienten cuesta arriba y cuesta el triple sostener cualquier buen hábito.',
+      microAction: 'Regálate hoy 10 minutos de descanso verdadero: sin celular, sin televisión y sin hacer dos cosas a la vez. Respira profundo, camina despacio o quédate en silencio.',
+      microActionWhy: 'Diez minutos reales sin estímulos ni pantallas le permiten a tu sistema nervioso bajar revoluciones y recuperar claridad.',
+      quote: '“Descansar no es dejar de trabajar; es recuperar claridad.”',
+      bandCopy: {
+        low: 'Tu batería está baja y tu cuerpo pide pausas reales sin pantallas ni apuros.',
+        mid: 'Tu energía alcanza para sacar el día, pero sueles terminar cansado y sin reserva.',
+        high: 'Cuidas bien tu descanso, tu cuerpo y tu espacio cercano.'
+      }
     },
     {
       id: 'dinero',
@@ -50,10 +74,18 @@
       vidaLetter: 'D — Dirección (Control básico sin drama)',
       weekLabel: 'Semana 3 · Orden del dinero',
       toolName: 'Mapa simple del dinero',
-      strengthCopy: 'Sabes en qué se va tu dinero y tomas decisiones con calma. Esa claridad reduce mucho estrés silencioso.',
-      priorityCopy: 'La tensión con el dinero suele nacer de no mirarlo con calma. No necesitas ser experto, solo empezar a registrar con honestidad.',
-      microAction: 'Anota hoy 1 solo gasto del día (grande o pequeño) y clasifícalo con una palabra: Necesario, Útil o Impulso. Sin culpa, solo observación.',
-      quote: '“El dinero no se arregla pensando, se arregla registrando.”'
+      strengthCopy: 'Sabes en qué se va tu dinero y tomas decisiones de gasto con calma. Esa claridad quita muchísimo estrés silencioso.',
+      strengthTip: 'Sigue con ese hábito de revisar tus gastos: esa misma constancia te servirá para ordenar cualquier otra área de tu vida.',
+      priorityCopy: 'La tensión con el dinero suele nacer de no mirarlo con calma o de pequeños gastos por impulso que se van acumulando sin darte cuenta.',
+      priorityWhy: 'No saber exactamente en qué se va el dinero genera preocupación constante en el fondo de la mente, aunque no lo notes todo el día.',
+      microAction: 'Anota hoy 1 solo gasto del día (grande o pequeño) y clasifícalo con una palabra: Necesario, Útil o Impulso. Sin culpa, solo para observar con claridad.',
+      microActionWhy: 'Empezar con un solo gasto rompe el miedo a mirar tus números y activa decisiones mucho más conscientes desde el primer día.',
+      quote: '“El dinero no se arregla pensando, se arregla registrando.”',
+      bandCopy: {
+        low: 'Hay incertidumbre o tensión con tus gastos; empezar a anotarlos de forma simple te dará mucha paz.',
+        mid: 'Tienes una idea general de tus gastos, pero aún hay fugas pequeñas o compras por impulso.',
+        high: 'Tienes claridad sobre en qué se va tu dinero y decides tus gastos con tranquilidad.'
+      }
     },
     {
       id: 'habitos',
@@ -63,10 +95,18 @@
       vidaLetter: 'A — Acción (Lo pequeño sostenido cada día)',
       weekLabel: 'Semana 4 · Integración y Triple Ancla',
       toolName: 'Tu Triple Ancla',
-      strengthCopy: 'Logras sostener pequeñas rutinas que mantienen tu día en pie incluso cuando no tienes ganas.',
-      priorityCopy: 'Intentar cambiar diez cosas a la vez agota y frustra. Lo que cambia tu vida son 3 acciones mínimas que puedas cumplir hasta en días difíciles.',
-      microAction: 'Elige tu Triple Ancla para mañana: 1 acción pequeña para tu mente, 1 para tu día y 1 para tu orden/dinero. Que juntas tomen menos de 10 minutos.',
-      quote: '“Lo pequeño, sostenido, sostiene todo.”'
+      strengthCopy: 'Logras sostener pequeñas rutinas que mantienen tu día en pie incluso cuando no tienes ganas o la semana se complica.',
+      strengthTip: 'Esa constancia es oro puro: agrega una sola acción mini en tu área más baja y verás cambios rápidos sin esfuerzo extremo.',
+      priorityCopy: 'Intentar cambiar diez cosas a la vez agota y frustra. Cuando un día sale mal, es fácil sentir que “ya fallaste” y soltar todo.',
+      priorityWhy: 'Sin una versión mínima para los días difíciles, cada tropiezo se vuelve un reinicio desde cero y te hace dudar de tu propia palabra.',
+      microAction: 'Elige tu Triple Ancla para mañana: 1 acción pequeñísima para tu mente, 1 para tu día y 1 para tu orden/dinero. Que las tres juntas tomen menos de 10 minutos.',
+      microActionWhy: 'Cumplir acciones tan pequeñas que casi no puedes fallar reconstruye tu confianza y crea impulso real día tras día.',
+      quote: '“Lo pequeño, sostenido, sostiene todo.”',
+      bandCopy: {
+        low: 'Te cuesta sostener rutinas; necesitas bajar el tamaño de tus metas a versiones mínimas de 5 minutos.',
+        mid: 'Sostienes algunos hábitos buenos, pero en días pesados se te rompen con facilidad.',
+        high: 'Tienes constancia real y sabes retomar tu ritmo rápido cuando un día se desacomoda.'
+      }
     }
   ];
 
@@ -401,16 +441,20 @@
     radarSvg: document.getElementById('radar-svg'),
     overallScoreValue: document.getElementById('overall-score-value'),
     overallScoreTag: document.getElementById('overall-score-tag'),
+    overallDiagnosisText: document.getElementById('overall-diagnosis-text'),
     barsList: document.getElementById('bars-list'),
 
     strengthTitle: document.getElementById('strength-title'),
     strengthBody: document.getElementById('strength-body'),
+    strengthTip: document.getElementById('strength-tip'),
     priorityTitle: document.getElementById('priority-title'),
     priorityBody: document.getElementById('priority-body'),
+    priorityWhy: document.getElementById('priority-why'),
     priorityVidaLink: document.getElementById('priority-vida-link'),
 
     microactionToolTag: document.getElementById('microaction-tool-tag'),
     microactionText: document.getElementById('microaction-text'),
+    microactionWhy: document.getElementById('microaction-why'),
     microactionQuote: document.getElementById('microaction-quote'),
     microactionDoneCheck: document.getElementById('microaction-done-check'),
     microactionDoneLabel: document.getElementById('microaction-done-label'),
@@ -576,11 +620,31 @@
     return 'Vida con buena claridad';
   }
 
+  function overallDiagnosis(val, strongest, priority) {
+    if (val < 2.3) {
+      return `Hoy sientes bastante ruido acumulado en tu día a día. No significa que estés haciendo todo mal, sino que necesitas parar un momento y simplificar. Tu mejor apoyo actual es ${strongest.name} (${strongest.score}/5), y el alivio más rápido vendrá al ordenar poco a poco ${priority.name} (${priority.score}/5).`;
+    }
+    if (val < 3.3) {
+      return `Estás en un buen punto de reinicio: ya tienes bases que te sostienen —especialmente en ${strongest.name} (${strongest.score}/5)—, pero ${priority.name} (${priority.score}/5) te está quitando calma y energía. Con un ajuste pequeño ahí notarás la diferencia en toda tu semana.`;
+    }
+    if (val < 4.2) {
+      return `Ya llevas una estructura saludable en marcha. Tu fortaleza hoy está en ${strongest.name} (${strongest.score}/5), y si le das un poco de atención a ${priority.name} (${priority.score}/5), tus días se sentirán mucho más ligeros y estables.`;
+    }
+    return `Tienes una vida con muy buena claridad y equilibrio general. Destacas especialmente en ${strongest.name} (${strongest.score}/5). Tu oportunidad de mejora fina está en ${priority.name} (${priority.score}/5) para sostener ese ritmo sin desgaste.`;
+  }
+
+  function dimensionBandNote(dim) {
+    if (!dim.bandCopy) return dim.short;
+    if (dim.score < 2.6) return dim.bandCopy.low;
+    if (dim.score < 3.8) return dim.bandCopy.mid;
+    return dim.bandCopy.high;
+  }
+
   function renderRadar(scores) {
-    const size = 320;
+    const size = 360;
     const cx = size / 2;
     const cy = size / 2;
-    const maxR = 104;
+    const maxR = 112;
     const levels = 5;
     const count = scores.length;
 
@@ -603,13 +667,13 @@
       svg += `<polygon points="${points}" fill="${lvl % 2 === 0 ? 'rgba(242,236,225,0.45)' : 'none'}" stroke="#DFD7C8" stroke-width="1" />`;
     }
 
-    // Ejes radiales y etiquetas
+    // Ejes radiales y etiquetas más grandes para lectura cómoda en móvil
     scores.forEach((s, i) => {
       const outer = pt(i, 1);
       svg += `<line x1="${cx}" y1="${cy}" x2="${outer.x.toFixed(1)}" y2="${outer.y.toFixed(1)}" stroke="#DFD7C8" stroke-width="1" />`;
-      const lbl = pt(i, 1.24);
+      const lbl = pt(i, 1.25);
       const anchor = Math.abs(lbl.x - cx) < 12 ? 'middle' : (lbl.x > cx ? 'start' : 'end');
-      svg += `<text x="${lbl.x.toFixed(1)}" y="${(lbl.y + 4).toFixed(1)}" text-anchor="${anchor}" fill="#232320" font-size="12.5" font-weight="600" font-family="Plus Jakarta Sans, sans-serif">${s.name}</text>`;
+      svg += `<text x="${lbl.x.toFixed(1)}" y="${(lbl.y + 5).toFixed(1)}" text-anchor="${anchor}" fill="#1F1F1C" font-size="14.5" font-weight="700" font-family="Plus Jakarta Sans, sans-serif">${s.name}</text>`;
     });
 
     // Polígono del usuario
@@ -618,12 +682,12 @@
       return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
     }).join(' ');
 
-    svg += `<polygon points="${dataPoints}" fill="rgba(74, 93, 78, 0.22)" stroke="#4A5D4E" stroke-width="2.5" stroke-linejoin="round" />`;
+    svg += `<polygon points="${dataPoints}" fill="rgba(74, 93, 78, 0.22)" stroke="#4A5D4E" stroke-width="2.8" stroke-linejoin="round" />`;
 
     // Puntos de cada dimensión
     scores.forEach((s, i) => {
       const p = pt(i, Math.max(0.12, s.score / 5));
-      svg += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5" fill="${s.color}" stroke="#FFFFFF" stroke-width="2" />`;
+      svg += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5.5" fill="${s.color}" stroke="#FFFFFF" stroke-width="2" />`;
     });
 
     els.radarSvg.innerHTML = svg;
@@ -633,7 +697,7 @@
     const result = computeScores();
 
     els.resultHeadline.textContent = `Hoy tu mayor palanca de orden es ${result.priority.name}`;
-    els.resultSubtitle.textContent = `Tu punto más fuerte está en ${result.strongest.name} (${result.strongest.score}/5). Empezar por ${result.priority.name} (${result.priority.score}/5) te devolverá más calma con menos esfuerzo.`;
+    els.resultSubtitle.textContent = `Lo mejor de tu resultado está en ${result.strongest.name} (${result.strongest.score}/5) y tu punto más bajo está en ${result.priority.name} (${result.priority.score}/5). Empezar por ahí te devolverá calma con menos esfuerzo.`;
 
     if (state.arrivalPhrase && state.arrivalPhrase.trim()) {
       els.savedPhraseBox.hidden = false;
@@ -645,8 +709,11 @@
     renderRadar(result.scores);
     els.overallScoreValue.textContent = `${result.overall.toFixed(1)} / 5.0`;
     els.overallScoreTag.textContent = overallLabel(result.overall);
+    if (els.overallDiagnosisText) {
+      els.overallDiagnosisText.textContent = overallDiagnosis(result.overall, result.strongest, result.priority);
+    }
 
-    // Barras
+    // Barras con lectura clara por dimensión
     els.barsList.innerHTML = '';
     result.scores.forEach(s => {
       const pct = Math.round((s.score / 5) * 100);
@@ -659,21 +726,31 @@
         <div class="bar-track">
           <div class="bar-fill" style="width: ${pct}%; background-color: ${s.color};"></div>
         </div>
+        <p class="bar-note">${dimensionBandNote(s)}</p>
       `;
       els.barsList.appendChild(row);
     });
 
-    // Lectura V.I.D.A.
+    // Lectura V.I.D.A.: Lo mejor y lo más bajo
     els.strengthTitle.textContent = `${result.strongest.name} (${result.strongest.score.toFixed(1)} / 5)`;
     els.strengthBody.textContent = result.strongest.strengthCopy;
+    if (els.strengthTip) {
+      els.strengthTip.innerHTML = `<strong>Cómo aprovecharlo:</strong> ${result.strongest.strengthTip}`;
+    }
 
     els.priorityTitle.textContent = `${result.priority.name} (${result.priority.score.toFixed(1)} / 5)`;
     els.priorityBody.textContent = result.priority.priorityCopy;
+    if (els.priorityWhy) {
+      els.priorityWhy.innerHTML = `<strong>Por qué te pesa tanto:</strong> ${result.priority.priorityWhy}`;
+    }
     els.priorityVidaLink.innerHTML = `<strong>En el método:</strong> ${result.priority.vidaLetter}<br/><span>${result.priority.weekLabel}</span>`;
 
-    // Micro-acción
+    // Tip práctico de hoy (Micro-acción)
     els.microactionToolTag.textContent = result.priority.toolName;
     els.microactionText.textContent = result.priority.microAction;
+    if (els.microactionWhy) {
+      els.microactionWhy.innerHTML = `<strong>Por qué funciona este tip:</strong> ${result.priority.microActionWhy}`;
+    }
     els.microactionQuote.textContent = result.priority.quote;
     els.microactionDoneCheck.checked = Boolean(state.microActionDone);
     updateMicroActionLabel();
@@ -687,7 +764,7 @@
   function updateMicroActionLabel() {
     els.microactionDoneLabel.textContent = state.microActionDone
       ? '¡Hecho! Hoy ya avanzaste 1% hacia tu orden'
-      : 'Marcar esta micro-acción como hecha hoy';
+      : 'Marcar este tip como hecho hoy';
   }
 
   function syncFeedbackInputs() {
@@ -700,12 +777,12 @@
     els.fbConfusing.value = state.feedback.confusing || '';
     els.fbLiked.value = state.feedback.liked || '';
     if (els.btnSendFeedback) {
-      els.btnSendFeedback.textContent = state.feedbackSent ? 'Actualizar feedback enviado' : 'Enviar feedback';
+      els.btnSendFeedback.textContent = state.feedbackSent ? 'Actualizar mi opinión' : 'Enviar mi opinión';
     }
     if (els.feedbackSendStatus) {
       els.feedbackSendStatus.hidden = !state.feedbackSent;
       if (state.feedbackSent) {
-        els.feedbackSendStatus.textContent = '✓ Feedback enviado y guardado. ¡Muchas gracias!';
+        els.feedbackSendStatus.textContent = '✓ ¡Gracias! Tu opinión y resultado ya quedaron guardados.';
       }
     }
   }
@@ -866,12 +943,12 @@
       state.feedbackSent = true;
       saveState();
       els.btnSendFeedback.disabled = false;
-      els.btnSendFeedback.textContent = 'Actualizar feedback enviado';
+      els.btnSendFeedback.textContent = 'Actualizar mi opinión';
       if (els.feedbackSendStatus) {
         els.feedbackSendStatus.hidden = false;
-        els.feedbackSendStatus.textContent = '✓ Feedback enviado y guardado. ¡Muchas gracias!';
+        els.feedbackSendStatus.textContent = '✓ ¡Gracias! Tu opinión y resultado ya quedaron guardados.';
       }
-      showToast('¡Gracias! Tu feedback se guardó automáticamente');
+      showToast('¡Gracias! Tu opinión se guardó automáticamente');
     });
   }
 
