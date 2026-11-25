@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test V.I.D.A. — VIDA EN ORDEN | Menos ruido. Más vida.</title>
+  <meta name="description" content="Evalúa en 3 minutos tus 5 dimensiones (Mente, Tiempo, Energía, Dinero y Hábitos) con el Test V.I.D.A. y recibe tu primera micro-acción de orden." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="top-bar" aria-label="Encabezado de marca">
+      <button type="button" id="brand-home-btn" class="brand-mark" aria-label="Volver al inicio del Test V.I.D.A.">
+        <span class="brand-name">VIDA EN ORDEN</span>
+        <span class="brand-slogan">Menos ruido. Más vida.</span>
+      </button>
+      <div id="header-progress-pill" class="header-step" hidden>
+        <span id="header-step-text">1 / 20</span>
+      </div>
+    </header>
+
+    <main id="app-main" class="main-container">
+      <!-- VISTA 1: PORTADA -->
+      <section id="view-intro" class="view view-intro" aria-labelledby="intro-title">
+        <div class="editorial-rule" aria-hidden="true"></div>
+        <p class="eyebrow">Test inicial · Método V.I.D.A.</p>
+        <h1 id="intro-title" class="hero-title">¿Dónde está el ruido en tu día hoy?</h1>
+        <p class="hero-lead">
+          Este no es un examen ni una prueba para calificarte. Es una pausa de 3 minutos para ver con claridad cómo están cinco áreas clave de tu vida.
+        </p>
+
+        <blockquote class="quiet-quote">
+          “Antes de empezar, responde con total honestidad. No hay respuestas ‘buenas’: solo claridad.”
+        </blockquote>
+
+        <div class="dimensions-strip" aria-label="Las cinco dimensiones evaluadas">
+          <div class="dim-item">
+            <span class="dim-dot" style="background: var(--dim-mente);"></span>
+            <div>
+              <strong>Mente</strong>
+              <span>Ruido mental y claridad</span>
+            </div>
+          </div>
+          <div class="dim-item">
+            <span class="dim-dot" style="background: var(--dim-tiempo);"></span>
+            <div>
+              <strong>Tiempo</strong>
+              <span>Orden y ritmo diario</span>
+            </div>
+          </div>
+          <div class="dim-item">
+            <span class="dim-dot" style="background: var(--dim-energia);"></span>
+            <div>
+              <strong>Energía</strong>
+              <span>Descanso y cuidado</span>
+            </div>
+          </div>
+          <div class="dim-item">
+            <span class="dim-dot" style="background: var(--dim-dinero);"></span>
+            <div>
+              <strong>Dinero</strong>
+              <span>Calma y claridad en gastos</span>
+            </div>
+          </div>
+          <div class="dim-item">
+            <span class="dim-dot" style="background: var(--dim-habitos);"></span>
+            <div>
+              <strong>Hábitos</strong>
+              <span>Pequeñas acciones estables</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro-actions">
+          <button type="button" id="btn-start-test" class="btn btn-primary btn-lg">
+            Comenzar mi Test V.I.D.A.
+          </button>
+          <button type="button" id="btn-resume-test" class="btn btn-secondary" hidden>
+            Continuar donde me quedé
+          </button>
+          <button type="button" id="btn-view-saved-result" class="btn btn-ghost" hidden>
+            Ver mi resultado guardado
+          </button>
+        </div>
+
+        <p class="privacy-note">
+          20 preguntas breves · Sin crear cuenta · Tus respuestas se guardan solo en este dispositivo.
+        </p>
+      </section>
+
+      <!-- VISTA 2: PREGUNTAS DEL TEST -->
+      <section id="view-quiz" class="view view-quiz" hidden aria-live="polite">
+        <div class="quiz-progress-wrap">
+          <div class="quiz-meta-row">
+            <span id="quiz-dim-badge" class="dim-label">Mente</span>
+            <span id="quiz-counter" class="quiz-counter">Pregunta 1 de 20</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="5" id="quiz-progressbar">
+            <div class="progress-fill" id="quiz-progress-fill" style="width: 5%;"></div>
+          </div>
+        </div>
+
+        <article class="question-sheet" id="question-sheet">
+          <p id="question-context" class="question-context">Claridad mental</p>
+          <h2 id="question-text" class="question-text"></h2>
+          <p id="question-hint" class="question-hint"></p>
+
+          <div id="options-list" class="options-list" role="radiogroup" aria-labelledby="question-text">
+            <!-- Opciones generadas dinámicamente -->
+          </div>
+        </article>
+
+        <div class="quiz-nav">
+          <button type="button" id="btn-prev-q" class="btn btn-ghost">← Anterior</button>
+          <button type="button" id="btn-next-q" class="btn btn-primary" disabled>Siguiente →</button>
+        </div>
+      </section>
+
+      <!-- VISTA 3: ESTADO INTERIOR (DEL PDF ORIGINAL) -->
+      <section id="view-checkin" class="view view-checkin" hidden>
+        <div class="quiz-progress-wrap">
+          <div class="quiz-meta-row">
+            <span class="dim-label">Cierre del test</span>
+            <span class="quiz-counter">Último paso</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <article class="question-sheet">
+          <p class="question-context">Estado interior (opcional)</p>
+          <h2 class="question-text">Describe en una frase cómo llegas hoy</h2>
+          <p class="question-hint">
+            No tiene que sonar bonito. Solo ponle nombre a cómo te sientes hoy antes de ver tu mapa.
+          </p>
+
+          <div class="chips-row" aria-label="Ejemplos rápidos">
+            <button type="button" class="quick-chip" data-phrase="Con ganas de ordenar mi día sin estresarme.">Con ganas de orden</button>
+            <button type="button" class="quick-chip" data-phrase="Con muchas cosas en la cabeza y poco tiempo.">Cabeza saturada</button>
+            <button type="button" class="quick-chip" data-phrase="Cansado, pero listo para empezar poco a poco.">Cansado pero listo</button>
+            <button type="button" class="quick-chip" data-phrase="Tranquilo y buscando mejorar mis hábitos.">Tranquilo y curioso</button>
+          </div>
+
+          <label for="checkin-phrase" class="sr-only">Cómo llegas hoy</label>
+          <textarea
+            id="checkin-phrase"
+            class="editorial-textarea"
+            rows="3"
+            maxlength="240"
+            placeholder="Ejemplo: Siento que hago muchas cosas, pero al final del día me quedo con pendiente..."
+          ></textarea>
+        </article>
+
+        <div class="quiz-nav">
+          <button type="button" id="btn-back-to-last-q" class="btn btn-ghost">← Revisar última</button>
+          <button type="button" id="btn-finish-test" class="btn btn-primary">Ver mi diagnóstico →</button>
+        </div>
+      </section>
+
+      <!-- VISTA 4: RESULTADOS Y MICRO-ACCIÓN -->
+      <section id="view-results" class="view view-results" hidden>
+        <div class="results-header">
+          <p class="eyebrow">Tu fotografía de hoy · Método V.I.D.A.</p>
+          <h1 id="result-headline" class="results-title">Tu mapa de orden personal</h1>
+          <p id="result-subtitle" class="results-subtitle"></p>
+        </div>
+
+        <div id="saved-phrase-box" class="arrival-phrase" hidden>
+          <span class="arrival-label">Así llegaste hoy:</span>
+          <p id="saved-phrase-text"></p>
+        </div>
+
+        <!-- RESUMEN VISUAL: RADAR + BARRAS -->
+        <section class="paper-card chart-section" aria-label="Mapa de tus 5 dimensiones">
+          <div class="chart-grid">
+            <div class="radar-wrap">
+              <svg id="radar-svg" viewBox="0 0 320 320" role="img" aria-label="Gráfica de las 5 dimensiones de VIDA EN ORDEN"></svg>
+              <div class="overall-score">
+                <span class="overall-label">Nivel de orden actual</span>
+                <strong id="overall-score-value">0.0 / 5.0</strong>
+                <span id="overall-score-tag" class="overall-tag"></span>
+              </div>
+            </div>
+            <div id="bars-list" class="bars-list">
+              <!-- Barras de las 5 dimensiones -->
+            </div>
+          </div>
+        </section>
+
+        <!-- LECTURA V.I.D.A. -->
+        <section class="insights-grid" aria-label="Diagnóstico principal">
+          <article class="paper-card insight-card">
+            <p class="insight-kicker" style="color: var(--primary);">Tu base firme</p>
+            <h2 id="strength-title" class="insight-title"></h2>
+            <p id="strength-body" class="insight-body"></p>
+          </article>
+
+          <article class="paper-card insight-card priority-card">
+            <p class="insight-kicker" style="color: var(--accent);">Tu prioridad de orden hoy</p>
+            <h2 id="priority-title" class="insight-title"></h2>
+            <p id="priority-body" class="insight-body"></p>
+            <p id="priority-vida-link" class="vida-stage-note"></p>
+          </article>
+        </section>
+
+        <!-- MICRO-ACCIÓN DE HOY -->
+        <section class="paper-card microaction-card" aria-labelledby="microaction-heading">
+          <div class="microaction-top">
+            <div>
+              <p class="eyebrow">Paso inmediato · 5 minutos</p>
+              <h2 id="microaction-heading" class="section-heading">Tu micro-acción para hoy</h2>
+            </div>
+            <span id="microaction-tool-tag" class="tool-tag">Herramienta V.I.D.A.</span>
+          </div>
+          <p id="microaction-text" class="microaction-text"></p>
+          <p id="microaction-quote" class="microaction-quote"></p>
+          <label class="done-toggle" for="microaction-done-check">
+            <input type="checkbox" id="microaction-done-check" />
+            <span class="done-box" aria-hidden="true"></span>
+            <span id="microaction-done-label">Marcar esta micro-acción como hecha hoy</span>
+          </label>
+        </section>
+
+        <!-- REFLEXIÓN PERSONAL -->
+        <section class="paper-card reflection-card" aria-labelledby="reflection-heading">
+          <h2 id="reflection-heading" class="section-heading">Tu nota personal de claridad</h2>
+          <p class="section-sub">
+            Si mañana pudieras quitar <strong>una sola cosa</strong> que te genera ruido esta semana, ¿cuál sería?
+          </p>
+          <label for="reflection-input" class="sr-only">Nota personal de claridad</label>
+          <textarea
+            id="reflection-input"
+            class="editorial-textarea"
+            rows="3"
+            placeholder="Escríbelo aquí para dejar de cargarlo en la cabeza..."
+          ></textarea>
+          <div class="reflection-footer">
+            <span id="reflection-status" class="saved-indicator">Se guarda automáticamente en tu dispositivo</span>
+            <div class="result-util-btns">
+              <button type="button" id="btn-copy-summary" class="btn btn-secondary btn-sm">Copiar mi resumen</button>
+              <button type="button" id="btn-retake-test" class="btn btn-ghost btn-sm">Repetir test</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- MODO PRUEBA FAMILIAR / BETA (ETAPA 1) -->
+        <section class="paper-card feedback-card" aria-labelledby="feedback-heading">
+          <details id="feedback-details" open>
+            <summary class="feedback-summary">
+              <div>
+                <p class="eyebrow">Etapa 1 · Validación</p>
+                <h2 id="feedback-heading" class="section-heading">¿Estás probando este Test? Cuéntanos cómo se sintió</h2>
+              </div>
+              <span class="summary-chevron" aria-hidden="true">▾</span>
+            </summary>
+
+            <div class="feedback-body">
+              <p class="section-sub">
+                Tus respuestas nos ayudan a hacer el Test más claro y fácil antes de abrirlo al público.
+              </p>
+
+              <div class="field-group">
+                <label class="field-label">¿Quién lo probó?</label>
+                <div class="segmented" id="fb-profile-group" role="radiogroup" aria-label="Perfil de prueba">
+                  <button type="button" class="seg-btn active" data-profile="Adulto">Adulto</button>
+                  <button type="button" class="seg-btn" data-profile="Adolescente (13-17)">Adolescente</button>
+                  <button type="button" class="seg-btn" data-profile="Niño / Niña (8-12)">Niño / Niña</button>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">¿Qué tan fácil de entender fue? (1 = confuso · 5 = clarísimo)</label>
+                <div class="rating-row" id="fb-clarity-group" role="radiogroup" aria-label="Calificación de claridad">
+                  <button type="button" class="rate-btn" data-rate="1">1</button>
+                  <button type="button" class="rate-btn" data-rate="2">2</button>
+                  <button type="button" class="rate-btn" data-rate="3">3</button>
+                  <button type="button" class="rate-btn" data-rate="4">4</button>
+                  <button type="button" class="rate-btn active" data-rate="5">5</button>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="fb-confusing" class="field-label">¿Hubo alguna palabra o pregunta que costó trabajo entender?</label>
+                <input id="fb-confusing" type="text" class="editorial-input" placeholder="Ej. Ninguna / La pregunta 14 sobre gastos..." />
+              </div>
+
+              <div class="field-group">
+                <label for="fb-liked" class="field-label">¿Qué fue lo que más te gustó o te sirvió?</label>
+                <input id="fb-liked" type="text" class="editorial-input" placeholder="Ej. La gráfica final, la micro-acción..." />
+              </div>
+
+              <button type="button" id="btn-copy-whatsapp" class="btn btn-accent">
+                Copiar feedback para WhatsApp
+              </button>
+            </div>
+          </details>
+        </section>
+
+        <!-- PUENTE AL PROGRAMA DE 30 DÍAS -->
+        <section class="program-bridge" aria-labelledby="bridge-heading">
+          <p class="eyebrow">Siguiente paso · Programa completo</p>
+          <h2 id="bridge-heading" class="bridge-title">VIDA EN ORDEN — Sistema de 30 Días</h2>
+          <p class="bridge-text">
+            Un sistema práctico de <strong>10 minutos al día</strong> para bajar el ruido mental, diseñar tu <em>Día Base</em>, sostener tu <em>Triple Ancla</em> y ordenar tus gastos sin drama.
+          </p>
+          <div class="bridge-formats">
+            <div class="format-box">
+              <strong>Edición Esencial (PDF)</strong>
+              <span>Guía de 30 días + cuaderno + Hoja SOS</span>
+              <em>$99 MXN · Próximamente</em>
+            </div>
+            <div class="format-box format-featured">
+              <strong>Edición Completa (PDF + Webapp)</strong>
+              <span>Todo el PDF + seguimiento diario, hábitos y comparativa Día 1 vs. 30</span>
+              <em>$199 MXN · Próximamente</em>
+            </div>
+          </div>
+          <p class="bridge-footnote">
+            Sin suscripciones mensuales ni cuentas obligatorias. Pagas una vez y es tuyo.
+          </p>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>VIDA EN ORDEN</strong> · Menos ruido. Más vida.</p>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

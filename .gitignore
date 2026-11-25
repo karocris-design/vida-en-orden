@@ -1,0 +1,9 @@
+# Proteger anonimato y evitar subir archivos pesados / fuentes con metadatos personales a repos públicos
+producto/pdf-fuente/*.pdf
+producto/pdf-fuente/texto-extraido.txt
+
+# Entorno macOS / Node
+.DS_Store
+node_modules/
+dist/
+.env

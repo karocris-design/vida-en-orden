@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Mesa de Juntas — VIDA EN ORDEN</title>
+  <meta name="description" content="Panel ejecutivo móvil para dirigir VIDA EN ORDEN desde el iPhone: roadmap, meta mensual, aprobación de contenido y acuerdos." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <span class="kicker">VIDA EN ORDEN</span>
+        <h1 class="top-title">Mesa de Juntas</h1>
+      </div>
+      <a href="../../producto/webapp/index.html" class="pill-link" target="_blank" rel="noopener">
+        Abrir Test V.I.D.A. ↗
+      </a>
+    </header>
+
+    <main class="content">
+      <!-- TAB 1: RESUMEN -->
+      <section id="tab-resumen" class="tab-panel active" aria-label="Resumen ejecutivo">
+        <article class="card highlight-card">
+          <div class="card-row-between">
+            <span class="badge-stage">Etapa 1 en curso</span>
+            <span class="meta-muted">Inversión inicial: $0</span>
+          </div>
+          <h2 class="card-serif-title">Validar el Test V.I.D.A. en familia</h2>
+          <p class="card-copy">
+            Objetivo inmediato: probar claridad y comprensión con tu esposa e hijas (15 y 9 años) antes de pasar a la corrección del PDF de 89 páginas.
+          </p>
+          <div class="quick-actions">
+            <a href="../../producto/webapp/index.html" class="btn btn-primary">Probar Test V.I.D.A.</a>
+            <button type="button" id="btn-share-test" class="btn btn-secondary">Copiar mensaje de prueba</button>
+          </div>
+        </article>
+
+        <!-- META MENSUAL -->
+        <article class="card">
+          <div class="card-row-between">
+            <div>
+              <span class="section-label">Meta mensual (bruta)</span>
+              <h3 class="metric-big" id="revenue-display">$0 <span class="metric-goal">/ $10,000 MXN</span></h3>
+            </div>
+            <span class="sales-pill" id="sales-count-pill">0 / 51 ventas</span>
+          </div>
+
+          <div class="bar-track">
+            <div id="revenue-bar" class="bar-fill" style="width: 0%;"></div>
+          </div>
+
+          <div class="sales-controls">
+            <div class="tier-counter">
+              <div>
+                <strong>Esencial (PDF)</strong>
+                <span>$99 MXN</span>
+              </div>
+              <div class="stepper">
+                <button type="button" class="step-btn" data-tier="esencial" data-delta="-1" aria-label="Restar venta Esencial">−</button>
+                <span id="count-esencial" class="step-num">0</span>
+                <button type="button" class="step-btn" data-tier="esencial" data-delta="1" aria-label="Sumar venta Esencial">+</button>
+              </div>
+            </div>
+
+            <div class="tier-counter">
+              <div>
+                <strong>Completo (PDF + Webapp)</strong>
+                <span>$199 MXN</span>
+              </div>
+              <div class="stepper">
+                <button type="button" class="step-btn" data-tier="completo" data-delta="-1" aria-label="Restar venta Completo">−</button>
+                <span id="count-completo" class="step-num">0</span>
+                <button type="button" class="step-btn" data-tier="completo" data-delta="1" aria-label="Sumar venta Completo">+</button>
+              </div>
+            </div>
+          </div>
+          <p class="footnote">Simulador y registro local guardado en tu iPhone.</p>
+        </article>
+
+        <!-- AUDITORIA PDF -->
+        <article class="card">
+          <span class="section-label">Hallazgos listos para Etapa 2 (PDF 89 pág.)</span>
+          <ul class="clean-list">
+            <li><strong>Anonimato:</strong> Retirar firma personal, iniciales al cierre y metadatos de autor en el archivo.</li>
+            <li><strong>Inclusión:</strong> Hacer opcionales las menciones directas de oración/versículo (8 ubicaciones).</li>
+            <li><strong>Errata detectada:</strong> Corregir encabezado <em>“SEMANA 4 — ORDEN DEL DINERO”</em> → <em>“SEMANA 4 — INTEGRACIÓN”</em>.</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- TAB 2: ROADMAP -->
+      <section id="tab-roadmap" class="tab-panel" hidden aria-label="Roadmap de cinco etapas">
+        <article class="card">
+          <div class="card-row-between">
+            <h2 class="card-serif-title">Plan de 5 Etapas</h2>
+            <span id="roadmap-pct" class="sales-pill">0%</span>
+          </div>
+          <div class="bar-track">
+            <div id="roadmap-bar" class="bar-fill" style="width: 0%;"></div>
+          </div>
+          <p class="footnote">Marca tareas completadas desde tu teléfono. Se guardan localmente.</p>
+        </article>
+
+        <div id="roadmap-container" class="stack"></div>
+      </section>
+
+      <!-- TAB 3: MARKETING -->
+      <section id="tab-marketing" class="tab-panel" hidden aria-label="Aprobación de Marketing">
+        <article class="card">
+          <div class="card-row-between">
+            <div>
+              <span class="section-label">Departamento de Marketing</span>
+              <h2 class="card-serif-title">Cola de Aprobación</h2>
+            </div>
+            <button type="button" id="btn-export-mkt" class="btn btn-secondary btn-sm">Copiar decisiones</button>
+          </div>
+          <p class="card-copy">
+            Revisa los primeros guiones de Carruseles (1080×1350) y Reels <em>faceless</em> (9:16). Cuando los apruebes, los generamos en lote para Instagram, TikTok y Pinterest.
+          </p>
+        </article>
+
+        <div id="marketing-container" class="stack"></div>
+      </section>
+
+      <!-- TAB 4: JUNTA -->
+      <section id="tab-junta" class="tab-panel" hidden aria-label="Directores y notas de junta">
+        <article class="card">
+          <span class="section-label">Notas rápidas desde iPhone</span>
+          <h2 class="card-serif-title">Agenda para tu próxima junta</h2>
+          <p class="card-copy">
+            Anota ideas, feedback familiar o decisiones del día y cópialas en un toque para traerlas a nuestra sesión.
+          </p>
+          <label for="board-notes" class="sr-only">Notas de junta</label>
+          <textarea
+            id="board-notes"
+            class="notes-area"
+            rows="4"
+            placeholder="Ej. A mi hija de 9 años le costó entender la pregunta 13... / Quiero probar un carrusel sobre la Hoja SOS..."
+          ></textarea>
+          <div class="notes-actions">
+            <span id="notes-status" class="footnote">Guardado en tu dispositivo</span>
+            <button type="button" id="btn-copy-agenda" class="btn btn-primary btn-sm">Copiar para la junta</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="section-label">Tu Comité Directivo (4 Roles)</span>
+          <div class="directors-list">
+            <div class="director-item">
+              <strong>Estrategia</strong>
+              <p>Protege el enfoque, evita dispersión y valida antes de invertir.</p>
+              <em>“¿Esto nos acerca a las primeras 10 ventas o solo nos ocupa?”</em>
+            </div>
+            <div class="director-item">
+              <strong>Producto</strong>
+              <p>Convierte el libro en una experiencia simple: PDF limpio + Webapp sin fricción.</p>
+              <em>“¿Alguien cansado a las 10 p.m. entiende esto en 5 segundos?”</em>
+            </div>
+            <div class="director-item">
+              <strong>Marketing</strong>
+              <p>Opera la máquina de Carruseles y Reels <em>faceless</em> hacia el Test V.I.D.A.</p>
+              <em>“¿Esta pieza muestra el sistema en acción y da ganas de hacer el test?”</em>
+            </div>
+            <div class="director-item">
+              <strong>Finanzas</strong>
+              <p>Cuida presupuesto $0, precios ($99/$199) y conversión real del embudo.</p>
+              <em>“¿Qué paso del embudo está perdiendo compradores hoy?”</em>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- NAVEGACIÓN INFERIOR IPHONE -->
+    <nav class="bottom-nav" aria-label="Navegación principal">
+      <button type="button" class="nav-btn active" data-tab="resumen">
+        <span class="nav-dot">●</span>
+        <span>Resumen</span>
+      </button>
+      <button type="button" class="nav-btn" data-tab="roadmap">
+        <span class="nav-dot">▤</span>
+        <span>Roadmap</span>
+      </button>
+      <button type="button" class="nav-btn" data-tab="marketing">
+        <span class="nav-dot">◈</span>
+        <span>Marketing</span>
+      </button>
+      <button type="button" class="nav-btn" data-tab="junta">
+        <span class="nav-dot">✎</span>
+        <span>Junta</span>
+      </button>
+    </nav>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="./app.js"></script>
+</body>
+</html>

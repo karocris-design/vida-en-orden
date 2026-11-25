@@ -1,0 +1,64 @@
+{
+  "brand": {
+    "name": "VIDA EN ORDEN",
+    "slogan": "Menos ruido. Más vida.",
+    "method": "V.I.D.A.",
+    "tone": "Sereno, práctico, cálido, editorial y directo. Sin misticismo impuesto ni motivación genérica."
+  },
+  "colors": {
+    "bgPrimary": "#FAF7F2",
+    "bgSurface": "#FFFFFF",
+    "bgMuted": "#F2ECE1",
+    "bgWarmAccent": "#EFE7DA",
+    "textPrimary": "#232320",
+    "textSecondary": "#5C5851",
+    "textMuted": "#847F76",
+    "primary": "#4A5D4E",
+    "primaryHover": "#3B4B3E",
+    "primarySoft": "#E7ECE8",
+    "accent": "#C67D5B",
+    "accentHover": "#B06A49",
+    "accentSoft": "#F7E9E2",
+    "border": "#E4DDD0",
+    "borderStrong": "#D2C8B8",
+    "dimensions": {
+      "mente": "#4A5D4E",
+      "tiempo": "#C67D5B",
+      "energia": "#6E8572",
+      "dinero": "#9B7B54",
+      "habitos": "#5F6F7E"
+    }
+  },
+  "typography": {
+    "fontHeading": "'Lora', Georgia, 'Times New Roman', serif",
+    "fontBody": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    "fontMono": "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace"
+  },
+  "radii": {
+    "sm": "8px",
+    "md": "14px",
+    "lg": "20px",
+    "pill": "9999px"
+  },
+  "shadows": {
+    "paper": "0 2px 10px rgba(35, 35, 32, 0.04), 0 1px 2px rgba(35, 35, 32, 0.03)",
+    "elevated": "0 12px 32px rgba(35, 35, 32, 0.07), 0 2px 6px rgba(35, 35, 32, 0.04)"
+  },
+  "formats": {
+    "carousel": {
+      "width": 1080,
+      "height": 1350,
+      "aspectRatio": "4:5"
+    },
+    "reel": {
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": "9:16"
+    },
+    "pinterest": {
+      "width": 1000,
+      "height": 1500,
+      "aspectRatio": "2:3"
+    }
+  }
+}
