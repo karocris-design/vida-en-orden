@@ -250,6 +250,7 @@
   // Estado
   let state = loadState();
   let currentIndex = 0;
+  let autoAdvanceTimer = null;
 
   function defaultState() {
     return {
@@ -278,7 +279,7 @@
         ...parsed,
         feedback: { ...defaultState().feedback, ...(parsed.feedback || {}) }
       };
-    } catch {
+    } catch (e) {
       return defaultState();
     }
   }
@@ -286,8 +287,23 @@
   function saveState() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    } catch {
+    } catch (e) {
       // Ignorar si almacenamiento privado está bloqueado
+    }
+  }
+
+  function scrollPageTop() {
+    try {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  function clearAutoAdvance() {
+    if (autoAdvanceTimer) {
+      clearTimeout(autoAdvanceTimer);
+      autoAdvanceTimer = null;
     }
   }
 
@@ -310,6 +326,7 @@
     quizCounter: document.getElementById('quiz-counter'),
     quizProgressbar: document.getElementById('quiz-progressbar'),
     quizProgressFill: document.getElementById('quiz-progress-fill'),
+    questionSheet: document.getElementById('question-sheet'),
     questionContext: document.getElementById('question-context'),
     questionText: document.getElementById('question-text'),
     questionHint: document.getElementById('question-hint'),
@@ -367,12 +384,13 @@
   }
 
   function showView(viewName) {
+    clearAutoAdvance();
     els.viewIntro.hidden = viewName !== 'intro';
     els.viewQuiz.hidden = viewName !== 'quiz';
     els.viewCheckin.hidden = viewName !== 'checkin';
     els.viewResults.hidden = viewName !== 'results';
     els.headerPill.hidden = viewName !== 'quiz';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollPageTop();
   }
 
   function refreshIntroButtons() {
@@ -385,6 +403,7 @@
   }
 
   function renderQuestion(idx) {
+    clearAutoAdvance();
     currentIndex = idx;
     const q = QUESTIONS[idx];
     const dim = DIMENSIONS.find(d => d.id === q.dim);
@@ -419,6 +438,7 @@
         </span>
       `;
       btn.addEventListener('click', () => {
+        clearAutoAdvance();
         state.answers[q.id] = opt.v;
         saveState();
         els.optionsList.querySelectorAll('.option-btn').forEach(b => {
@@ -427,14 +447,16 @@
         });
         btn.classList.add('selected');
         btn.setAttribute('aria-checked', 'true');
+        btn.blur();
         els.btnNextQ.disabled = false;
 
         // Avance fluido con breve pausa para confirmar la selección
-        setTimeout(() => {
+        autoAdvanceTimer = setTimeout(() => {
+          autoAdvanceTimer = null;
           if (currentIndex === idx) {
             goNextQuestion();
           }
-        }, 210);
+        }, 240);
       });
       els.optionsList.appendChild(btn);
     });
@@ -442,9 +464,18 @@
     els.btnPrevQ.textContent = idx === 0 ? '← Inicio' : '← Anterior';
     els.btnNextQ.textContent = idx === QUESTIONS.length - 1 ? 'Último paso →' : 'Siguiente →';
     els.btnNextQ.disabled = !currentVal;
+
+    // Transición clara y volver arriba para que en móvil siempre se vea la nueva pregunta
+    if (els.questionSheet) {
+      els.questionSheet.classList.remove('question-enter');
+      void els.questionSheet.offsetWidth;
+      els.questionSheet.classList.add('question-enter');
+    }
+    scrollPageTop();
   }
 
   function goNextQuestion() {
+    clearAutoAdvance();
     const q = QUESTIONS[currentIndex];
     if (!state.answers[q.id]) return;
     if (currentIndex < QUESTIONS.length - 1) {
@@ -616,7 +647,7 @@
     try {
       await navigator.clipboard.writeText(text);
       showToast(okMsg);
-    } catch {
+    } catch (e) {
       const ta = document.createElement('textarea');
       ta.value = text;
       document.body.appendChild(ta);
