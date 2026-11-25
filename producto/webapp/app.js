@@ -1,5 +1,6 @@
 (() => {
   const STORAGE_KEY = 'vida_en_orden_test_v1';
+  const SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwsTRMTmWNc2rkkG23_FRq99kihGzq71zZ2w1ZRE5VojAMROPKSz9RXsJLhkVR055yEgQ/exec';
 
   const DIMENSIONS = [
     {
@@ -251,15 +252,18 @@
   let state = loadState();
   let currentIndex = 0;
   let autoAdvanceTimer = null;
+  let reflectionSyncTimer = null;
 
   function defaultState() {
     return {
+      submissionId: null,
       answers: {},
       arrivalPhrase: '',
       completed: false,
       completedAt: null,
       microActionDone: false,
       reflection: '',
+      feedbackSent: false,
       feedback: {
         profile: 'Adulto',
         clarity: 5,
@@ -289,6 +293,58 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch (e) {
       // Ignorar si almacenamiento privado está bloqueado
+    }
+  }
+
+  function ensureSubmissionId() {
+    if (!state.submissionId) {
+      state.submissionId = 'vida_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+      saveState();
+    }
+    return state.submissionId;
+  }
+
+  function buildSheetsPayload(eventName) {
+    const r = computeScores();
+    const byDim = {};
+    r.scores.forEach(s => {
+      byDim[s.id] = s.score;
+    });
+    return {
+      submissionId: ensureSubmissionId(),
+      event: eventName,
+      overall: r.overall,
+      mente: byDim.mente,
+      tiempo: byDim.tiempo,
+      energia: byDim.energia,
+      dinero: byDim.dinero,
+      habitos: byDim.habitos,
+      strongest: r.strongest.name,
+      priority: r.priority.name,
+      arrivalPhrase: (state.arrivalPhrase || '').trim(),
+      reflection: (state.reflection || '').trim(),
+      feedbackProfile: state.feedback ? state.feedback.profile : '',
+      feedbackClarity: state.feedback ? state.feedback.clarity : '',
+      feedbackConfusing: state.feedback ? (state.feedback.confusing || '').trim() : '',
+      feedbackLiked: state.feedback ? (state.feedback.liked || '').trim() : ''
+    };
+  }
+
+  function syncToSheets(eventName) {
+    if (!SHEETS_WEBHOOK_URL) return Promise.resolve(false);
+    try {
+      const payload = buildSheetsPayload(eventName);
+      return fetch(SHEETS_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      })
+        .then(() => true)
+        .catch(() => false);
+    } catch (e) {
+      return Promise.resolve(false);
     }
   }
 
@@ -368,6 +424,8 @@
     fbClarityGroup: document.getElementById('fb-clarity-group'),
     fbConfusing: document.getElementById('fb-confusing'),
     fbLiked: document.getElementById('fb-liked'),
+    btnSendFeedback: document.getElementById('btn-send-feedback'),
+    feedbackSendStatus: document.getElementById('feedback-send-status'),
     btnCopyWhatsapp: document.getElementById('btn-copy-whatsapp'),
 
     toast: document.getElementById('toast')
@@ -641,6 +699,15 @@
     });
     els.fbConfusing.value = state.feedback.confusing || '';
     els.fbLiked.value = state.feedback.liked || '';
+    if (els.btnSendFeedback) {
+      els.btnSendFeedback.textContent = state.feedbackSent ? 'Actualizar feedback enviado' : 'Enviar feedback';
+    }
+    if (els.feedbackSendStatus) {
+      els.feedbackSendStatus.hidden = !state.feedbackSent;
+      if (state.feedbackSent) {
+        els.feedbackSendStatus.textContent = '✓ Feedback enviado y guardado. ¡Muchas gracias!';
+      }
+    }
   }
 
   async function copyText(text, okMsg) {
@@ -716,8 +783,10 @@
     state.arrivalPhrase = els.checkinPhrase.value.trim();
     state.completed = true;
     state.completedAt = new Date().toISOString();
+    ensureSubmissionId();
     saveState();
     renderResults();
+    syncToSheets('test_completado');
   });
 
   els.microactionDoneCheck.addEventListener('change', e => {
@@ -732,7 +801,13 @@
   els.reflectionInput.addEventListener('input', e => {
     state.reflection = e.target.value;
     saveState();
-    els.reflectionStatus.textContent = 'Guardado en tu dispositivo';
+    els.reflectionStatus.textContent = 'Guardado automáticamente';
+    if (state.completed) {
+      clearTimeout(reflectionSyncTimer);
+      reflectionSyncTimer = setTimeout(() => {
+        syncToSheets('reflexion_actualizada');
+      }, 1500);
+    }
   });
 
   els.btnCopySummary.addEventListener('click', () => {
@@ -783,9 +858,30 @@
     saveState();
   });
 
+  if (els.btnSendFeedback) {
+    els.btnSendFeedback.addEventListener('click', async () => {
+      els.btnSendFeedback.disabled = true;
+      els.btnSendFeedback.textContent = 'Enviando...';
+      await syncToSheets('feedback_enviado');
+      state.feedbackSent = true;
+      saveState();
+      els.btnSendFeedback.disabled = false;
+      els.btnSendFeedback.textContent = 'Actualizar feedback enviado';
+      if (els.feedbackSendStatus) {
+        els.feedbackSendStatus.hidden = false;
+        els.feedbackSendStatus.textContent = '✓ Feedback enviado y guardado. ¡Muchas gracias!';
+      }
+      showToast('¡Gracias! Tu feedback se guardó automáticamente');
+    });
+  }
+
   els.btnCopyWhatsapp.addEventListener('click', () => {
     const r = computeScores();
     const fb = state.feedback;
+    syncToSheets('feedback_enviado');
+    state.feedbackSent = true;
+    saveState();
+    syncFeedbackInputs();
     const msg = [
       '📋 *Feedback Prueba — Test V.I.D.A.*',
       `• Perfil: ${fb.profile}`,
@@ -794,7 +890,7 @@
       `• ¿Algo confuso?: ${fb.confusing.trim() || 'Ninguna palabra o pregunta confusa'}`,
       `• ¿Qué gustó más?: ${fb.liked.trim() || 'Sin comentario adicional'}`
     ].join('\n');
-    copyText(msg, 'Feedback copiado — listo para pegar en WhatsApp');
+    copyText(msg, 'Feedback copiado y guardado — listo para WhatsApp');
   });
 
   // Inicialización

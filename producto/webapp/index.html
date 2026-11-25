@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css?v=2" />
+  <link rel="stylesheet" href="./styles.css?v=3" />
 </head>
 <body>
   <div class="page-shell">
@@ -293,9 +293,15 @@
                 <input id="fb-liked" type="text" class="editorial-input" placeholder="Ej. La gráfica final, la micro-acción..." />
               </div>
 
-              <button type="button" id="btn-copy-whatsapp" class="btn btn-accent">
-                Copiar feedback para WhatsApp
-              </button>
+              <div class="feedback-actions">
+                <button type="button" id="btn-send-feedback" class="btn btn-accent">
+                  Enviar feedback
+                </button>
+                <button type="button" id="btn-copy-whatsapp" class="btn btn-secondary">
+                  Copiar feedback para WhatsApp
+                </button>
+              </div>
+              <p id="feedback-send-status" class="feedback-status" hidden></p>
             </div>
           </details>
         </section>
@@ -333,6 +339,6 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
-  <script src="./app.js?v=2"></script>
+  <script src="./app.js?v=3"></script>
 </body>
 </html>

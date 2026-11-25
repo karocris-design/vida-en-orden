@@ -892,6 +892,8 @@ body {
   color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.15s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .seg-btn.active,
@@ -905,6 +907,24 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 8px;
+}
+
+.feedback-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feedback-actions .btn {
+  width: 100%;
+}
+
+.feedback-status {
+  margin: 10px 0 0;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-align: center;
 }
 
 /* BRIDGE */
