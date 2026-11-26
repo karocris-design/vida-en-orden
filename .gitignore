@@ -7,3 +7,5 @@ producto/pdf-fuente/texto-extraido.txt
 node_modules/
 dist/
 .env
+__pycache__/
+*.pyc
