@@ -304,6 +304,11 @@
       microActionDone: false,
       reflection: '',
       feedbackSent: false,
+      interest: {
+        tier: 'PDF + Webapp $199',
+        contact: '',
+        submitted: false
+      },
       feedback: {
         profile: 'Adulto',
         clarity: 5,
@@ -321,6 +326,7 @@
       return {
         ...defaultState(),
         ...parsed,
+        interest: { ...defaultState().interest, ...(parsed.interest || {}) },
         feedback: { ...defaultState().feedback, ...(parsed.feedback || {}) }
       };
     } catch (e) {
@@ -350,6 +356,11 @@
     r.scores.forEach(s => {
       byDim[s.id] = s.score;
     });
+    const baseReflection = (state.reflection || '').trim();
+    const interestTag = state.interest && state.interest.submitted
+      ? `[Interés 30D: ${state.interest.tier}${state.interest.contact.trim() ? ' · ' + state.interest.contact.trim() : ''}]`
+      : '';
+    const combinedReflection = [baseReflection, interestTag].filter(Boolean).join(' | ');
     return {
       submissionId: ensureSubmissionId(),
       event: eventName,
@@ -362,7 +373,7 @@
       strongest: r.strongest.name,
       priority: r.priority.name,
       arrivalPhrase: (state.arrivalPhrase || '').trim(),
-      reflection: (state.reflection || '').trim(),
+      reflection: combinedReflection,
       feedbackProfile: state.feedback ? state.feedback.profile : '',
       feedbackClarity: state.feedback ? state.feedback.clarity : '',
       feedbackConfusing: state.feedback ? (state.feedback.confusing || '').trim() : '',
@@ -471,6 +482,11 @@
     btnSendFeedback: document.getElementById('btn-send-feedback'),
     feedbackSendStatus: document.getElementById('feedback-send-status'),
     btnCopyWhatsapp: document.getElementById('btn-copy-whatsapp'),
+
+    waitlistTierGroup: document.getElementById('waitlist-tier-group'),
+    waitlistContact: document.getElementById('waitlist-contact'),
+    btnWaitlistSubmit: document.getElementById('btn-waitlist-submit'),
+    waitlistStatus: document.getElementById('waitlist-status'),
 
     toast: document.getElementById('toast')
   };
@@ -785,6 +801,25 @@
         els.feedbackSendStatus.textContent = '✓ ¡Gracias! Tu opinión y resultado ya quedaron guardados.';
       }
     }
+    if (els.waitlistTierGroup && state.interest) {
+      els.waitlistTierGroup.querySelectorAll('.tier-pick').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tier === state.interest.tier);
+      });
+    }
+    if (els.waitlistContact && state.interest) {
+      els.waitlistContact.value = state.interest.contact || '';
+    }
+    if (els.btnWaitlistSubmit && state.interest) {
+      els.btnWaitlistSubmit.textContent = state.interest.submitted
+        ? '✓ ¡Anotado! Actualizar mi aviso'
+        : 'Quiero que me avisen cuando salga';
+    }
+    if (els.waitlistStatus && state.interest) {
+      els.waitlistStatus.hidden = !state.interest.submitted;
+      if (state.interest.submitted) {
+        els.waitlistStatus.textContent = `✓ Registramos tu interés (${state.interest.tier}). ¡Te avisaremos en cuanto salga!`;
+      }
+    }
   }
 
   async function copyText(text, okMsg) {
@@ -969,6 +1004,40 @@
     ].join('\n');
     copyText(msg, 'Feedback copiado y guardado — listo para WhatsApp');
   });
+
+  if (els.waitlistTierGroup) {
+    els.waitlistTierGroup.addEventListener('click', e => {
+      const btn = e.target.closest('.tier-pick');
+      if (!btn) return;
+      state.interest.tier = btn.dataset.tier;
+      saveState();
+      syncFeedbackInputs();
+    });
+  }
+
+  if (els.waitlistContact) {
+    els.waitlistContact.addEventListener('input', e => {
+      state.interest.contact = e.target.value;
+      saveState();
+    });
+  }
+
+  if (els.btnWaitlistSubmit) {
+    els.btnWaitlistSubmit.addEventListener('click', async () => {
+      els.btnWaitlistSubmit.disabled = true;
+      els.btnWaitlistSubmit.textContent = 'Guardando...';
+      state.interest.submitted = true;
+      state.interest.contact = els.waitlistContact ? els.waitlistContact.value.trim() : '';
+      saveState();
+      const evt = state.interest.tier.includes('99') && !state.interest.tier.includes('199')
+        ? 'interes_30d_99'
+        : 'interes_30d_199';
+      await syncToSheets(evt);
+      els.btnWaitlistSubmit.disabled = false;
+      syncFeedbackInputs();
+      showToast('¡Listo! Te avisaremos en cuanto salga');
+    });
+  }
 
   // Inicialización
   refreshIntroButtons();

@@ -1,0 +1,321 @@
+{
+  "ctaUrlLabel": "Link en la bio · Test V.I.D.A. gratis",
+  "carruseles": [
+    {
+      "id": "01-dia-base",
+      "numero": "01",
+      "pilar": "Tiempo · Estructura",
+      "accentDim": "tiempo",
+      "titulo": "No necesitas productividad extrema, necesitas un Día Base",
+      "captionIG": "No estás atrasado ni te falta fuerza de voluntad.\n\nEl problema de casi todas las rutinas es que están diseñadas solo para los días perfectos. Al primer imprevisto, todo se cae.\n\nUn Día Base es lo contrario: tu estructura mínima (de menos de 15 minutos) para sostener tu claridad incluso en días pesados.\n\nGuarda este carrusel para armar el tuyo esta noche.\n\n👉 ¿Quieres saber qué área te está generando más ruido hoy (Mente, Tiempo, Energía, Dinero o Hábitos)?\nHaz gratis el Test V.I.D.A. en 3 minutos (sin crear cuenta) en el enlace de la bio.",
+      "hashtags": "#vidaenorden #ordenmental #productividadsimple #habitosdiarios #claridadmental #rutinadiaria #menosruidomasvida",
+      "slides": [
+        {
+          "type": "cover",
+          "eyebrow": "Tiempo · Estructura simple",
+          "headline": "No estás atrasado.",
+          "highlight": "Solo estás intentando vivir sin un Día Base.",
+          "subtitle": "Por qué los horarios perfectos fallan y cómo sostener tu día con solo 3 piezas."
+        },
+        {
+          "type": "contrast",
+          "eyebrow": "El error más común",
+          "headline": "Planear como si nunca hubiera imprevistos",
+          "badTitle": "Rutina rígida",
+          "badItems": [
+            "12 tareas apretadas por hora",
+            "Un retraso arruina todo el día",
+            "Terminas con culpa y agotamiento"
+          ],
+          "goodTitle": "Tu Día Base",
+          "goodItems": [
+            "Una estructura mínima y flexible",
+            "Resiste días ocupados o pesados",
+            "Te devuelve el volante sin estrés"
+          ]
+        },
+        {
+          "type": "concept",
+          "eyebrow": "Qué es exactamente",
+          "headline": "Tu piso firme para los días reales",
+          "body": "El Día Base no es una agenda llena de colores. Es el esqueleto mínimo que protege tu calma cuando el trabajo, la casa o el cansancio aprietan.",
+          "calloutLabel": "Regla práctica",
+          "calloutText": "Si tu rutina solo funciona cuando tienes tiempo libre y energía al 100%, no es una rutina: es una ilusión."
+        },
+        {
+          "type": "steps",
+          "eyebrow": "Cómo armarlo hoy",
+          "headline": "Las 3 piezas de un Día Base",
+          "items": [
+            {
+              "num": "01",
+              "title": "10 minutos de arranque limpio",
+              "desc": "Antes de abrir redes o noticias: respira, toma agua y define tu día."
+            },
+            {
+              "num": "02",
+              "title": "1 prioridad real (no una lista infinita)",
+              "desc": "Elige la única cosa que, si hoy queda hecha, hará que el día valga la pena."
+            },
+            {
+              "num": "03",
+              "title": "1 hora clara de cierre",
+              "desc": "Anota lo pendiente para mañana y deja de cargarlo en la cabeza por la noche."
+            }
+          ]
+        },
+        {
+          "type": "quote",
+          "theme": "sage",
+          "eyebrow": "Principio V.I.D.A.",
+          "quote": "“Un día ordenado no es perfecto. Es un día donde tú llevas el volante.”",
+          "subnote": "Empieza mañana definiendo solo tus 3 momentos ancla."
+        },
+        {
+          "type": "cta",
+          "eyebrow": "Tu siguiente paso · 3 minutos",
+          "headline": "¿Qué área te está robando más calma hoy?",
+          "body": "Evalúa gratis tus 5 dimensiones (Mente, Tiempo, Energía, Dinero y Hábitos) y llévate tu diagnóstico + 1 tip práctico para hoy.",
+          "badge": "Gratis · Sin crear cuenta · Enlace en la bio"
+        }
+      ]
+    },
+    {
+      "id": "02-triple-ancla",
+      "numero": "02",
+      "pilar": "Hábitos · Constancia",
+      "accentDim": "habitos",
+      "titulo": "La Triple Ancla para días caóticos",
+      "captionIG": "Cuando tienes un día malo, intentar sostener 10 hábitos a la vez solo termina en frustración.\n\nPor eso existe la Triple Ancla: 3 micro-acciones tan pequeñas (menos de 10 minutos en total) que puedes cumplir incluso cuando estás cansado o sin tiempo.\n\n1 para tu mente.\n1 para tu día.\n1 para tu orden y dinero.\n\nLo pequeño, sostenido, sostiene todo.\n\n👉 Descubre cuál de tus 5 dimensiones necesita orden primero con el Test V.I.D.A. gratuito (3 minutos, enlace en la bio).",
+      "hashtags": "#vidaenorden #habitospequenos #constancia #rutinasaludable #ordenpersonal #crecimientopersonal #menosruidomasvida",
+      "slides": [
+        {
+          "type": "cover",
+          "eyebrow": "Hábitos · Constancia real",
+          "headline": "Cuando el día se descontrola, no necesitas 20 hábitos.",
+          "highlight": "Necesitas solo 3.",
+          "subtitle": "Conoce la Triple Ancla: el método de 10 minutos para no abandonar tus rutinas."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "Por qué abandonamos",
+          "headline": "El ciclo de “todo o nada”",
+          "body": "Un lunes empiezas con diez propósitos gigantes. El miércoles llega un día pesado, fallas en uno y sientes que ya echaste todo a perder.",
+          "calloutLabel": "La salida simple",
+          "calloutText": "No necesitas más motivación. Necesitas una versión mínima de tus hábitos diseñada para tus días difíciles."
+        },
+        {
+          "type": "steps",
+          "eyebrow": "La fórmula",
+          "headline": "Qué es tu Triple Ancla",
+          "items": [
+            {
+              "num": "01",
+              "title": "1 ancla para tu Mente",
+              "desc": "Bajar ruido antes de que se acumule (ej. 2 minutos de descarga en papel)."
+            },
+            {
+              "num": "02",
+              "title": "1 ancla para tu Día",
+              "desc": "Mantener dirección simple (ej. subrayar solo tus 2 prioridades de hoy)."
+            },
+            {
+              "num": "03",
+              "title": "1 ancla para tu Dinero / Orden",
+              "desc": "Mantener claridad (ej. anotar 1 gasto del día o despejar tu mesa en 3 min)."
+            }
+          ]
+        },
+        {
+          "type": "contrast",
+          "eyebrow": "Ejemplo real en 10 minutos",
+          "headline": "Así se ve un día pesado bien sostenido",
+          "badTitle": "Sin anclas",
+          "badItems": [
+            "Despertar viendo el celular 30 min",
+            "Saltar de urgencia en urgencia",
+            "Gastar por prisa y acostarse agotado"
+          ],
+          "goodTitle": "Con Triple Ancla",
+          "goodItems": [
+            "1 min de pausa silenciosa al despertar",
+            "Elegir tus 2 pendientes esenciales",
+            "Anotar 1 gasto del día antes de dormir"
+          ]
+        },
+        {
+          "type": "quote",
+          "theme": "warm",
+          "eyebrow": "Principio V.I.D.A.",
+          "quote": "“Lo pequeño, sostenido, sostiene todo.”",
+          "subnote": "Volver rápido al día siguiente importa mucho más que no fallar nunca."
+        },
+        {
+          "type": "cta",
+          "eyebrow": "Diagnóstico gratuito · 3 minutos",
+          "headline": "Descubre dónde enfocar tu primera ancla hoy",
+          "body": "Haz el Test V.I.D.A. y recibe tu mapa de 5 dimensiones (lo mejor, lo más bajo y tu tip práctico del día).",
+          "badge": "Gratis · Sin registro · Enlace en la bio"
+        }
+      ]
+    },
+    {
+      "id": "03-ruido-mental",
+      "numero": "03",
+      "pilar": "Mente · Claridad",
+      "accentDim": "mente",
+      "titulo": "Por qué terminas agotado si sientes que no avanzaste",
+      "captionIG": "A veces el cansancio al final del día no viene de haber hecho demasiado… sino de haber cargado 30 pendientes abiertos en la cabeza al mismo tiempo.\n\nTu mente está hecha para pensar y decidir, no para funcionar como bodega de recordatorios.\n\nPrueba hoy la descarga mental de 3 minutos (slide 4) y siente cómo baja el ruido al instante.\n\n👉 ¿Quieres ver cómo está tu nivel real de ruido mental, tiempo, energía, dinero y hábitos?\nHaz gratis el Test V.I.D.A. en el enlace de la bio.",
+      "hashtags": "#vidaenorden #ruidomental #ansiedadcotidiana #claridadmental #bienestarpractico #ordenmental #menosruidomasvida",
+      "slides": [
+        {
+          "type": "cover",
+          "eyebrow": "Mente · Bajar el ruido",
+          "headline": "¿Por qué terminas el día agotado",
+          "highlight": "si sientes que casi no avanzaste?",
+          "subtitle": "La trampa silenciosa que te drena la pila antes de las 3 de la tarde."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "Lo que ocurre en tu cabeza",
+          "headline": "Cargas decenas de pestañas abiertas",
+          "body": "El mensaje sin contestar, el pago pendiente, la llamada de mañana, lo que olvidaste comprar… Cada pendiente sin anotar le exige energía a tu cerebro cada hora.",
+          "calloutLabel": "Dato clave",
+          "calloutText": "Tu cabeza sirve para tener ideas y tomar decisiones, no para guardar listas sueltas todo el día."
+        },
+        {
+          "type": "contrast",
+          "eyebrow": "La diferencia inmediata",
+          "headline": "Pensar en círculo vs. bajar a papel",
+          "badTitle": "Todo en la cabeza",
+          "badItems": [
+            "Repites los mismos pendientes 10 veces",
+            "Saltas al celular para distraerte",
+            "Sensación constante de saturación"
+          ],
+          "goodTitle": "Fuera de la mente",
+          "goodItems": [
+            "Ves todo en una sola hoja clara",
+            "Eliges qué importa hoy y qué espera",
+            "Recuperas foco y paz en minutos"
+          ]
+        },
+        {
+          "type": "steps",
+          "eyebrow": "Ejercicio de 3 minutos",
+          "headline": "Haz una descarga mental hoy",
+          "items": [
+            {
+              "num": "01",
+              "title": "Escribe sin filtro (3 minutos)",
+              "desc": "Saca en papel o notas todo lo que te ronda la cabeza, sin ordenarlo bonito."
+            },
+            {
+              "num": "02",
+              "title": "Subraya solo 2 cosas de hoy",
+              "desc": "Lo que de verdad mueve tu día hacia adelante."
+            },
+            {
+              "num": "03",
+              "title": "Estaciona el resto sin culpa",
+              "desc": "Al quedar anotado, tu cerebro confía en que no se olvidará y suelta la tensión."
+            }
+          ]
+        },
+        {
+          "type": "quote",
+          "theme": "sage",
+          "eyebrow": "Principio V.I.D.A.",
+          "quote": "“Lo que escribo dejo de cargarlo.”",
+          "subnote": "Bajar el ruido mental siempre es el primer paso del orden."
+        },
+        {
+          "type": "cta",
+          "eyebrow": "Test gratuito · 3 minutos",
+          "headline": "¿Dónde está el ruido en tu día hoy?",
+          "body": "Responde 20 preguntas breves, mira tu gráfica de 5 dimensiones y llévate tu primer tip práctico personalizado.",
+          "badge": "Gratis · Sin crear cuenta · Enlace en la bio"
+        }
+      ]
+    },
+    {
+      "id": "04-dinero-simple",
+      "numero": "04",
+      "pilar": "Dinero · Calma financiera",
+      "accentDim": "dinero",
+      "titulo": "El dinero no se arregla pensando, se arregla registrando",
+      "captionIG": "Mucho estrés silencioso no viene de cuánto ganas, sino de no saber con claridad en qué se está yendo tu dinero cada semana.\n\nNo necesitas un Excel complicado de 40 columnas para empezar a sentir paz financiera.\n\nSolo necesitas la regla de las 3 etiquetas (slide 4): Necesario, Útil o Impulso. Sin culpa, solo claridad.\n\nGuarda este post y pruébalo hoy con un solo gasto.\n\n👉 ¿El dinero es tu prioridad hoy o hay otra área pidiendo orden primero?\nDescúbrelo gratis en 3 minutos con el Test V.I.D.A. (enlace en la bio).",
+      "hashtags": "#vidaenorden #finanzaspersonales #ordendeldinero #gastosconscientes #pazfinanciera #ahorrosimple #menosruidomasvida",
+      "slides": [
+        {
+          "type": "cover",
+          "eyebrow": "Dinero · Control sin drama",
+          "headline": "El dinero no se arregla pensando.",
+          "highlight": "Se arregla registrando.",
+          "subtitle": "Un método de 30 segundos al día para recuperar calma sin Excels complicados."
+        },
+        {
+          "type": "concept",
+          "eyebrow": "La raíz de la tensión",
+          "headline": "Lo que más estresa es la niebla",
+          "body": "Cuando evitas mirar tus gastos por miedo o flojera, cada compra pequeña deja una incomodidad silenciosa. Mirar tus números con calma quita el drama.",
+          "calloutLabel": "Sin regaños",
+          "calloutText": "Registrar no es para castigarte por lo que gastaste: es para volver a decidir con conciencia."
+        },
+        {
+          "type": "steps",
+          "eyebrow": "La regla de 3 etiquetas",
+          "headline": "Clasifica cada gasto en 1 palabra",
+          "items": [
+            {
+              "num": "01",
+              "title": "Necesario",
+              "desc": "Lo esencial que sostiene tu casa, salud, transporte o compromisos básicos."
+            },
+            {
+              "num": "02",
+              "title": "Útil",
+              "desc": "Lo que mejora tu día, tu trabajo o te ahorra tiempo y problemas reales."
+            },
+            {
+              "num": "03",
+              "title": "Impulso",
+              "desc": "Antojos, prisas o compras automáticas que se van sin darte cuenta."
+            }
+          ]
+        },
+        {
+          "type": "contrast",
+          "eyebrow": "Cómo empezar hoy",
+          "headline": "No cambies todo el mes, cambia 1 gasto hoy",
+          "badTitle": "Lo que casi nunca dura",
+          "badItems": [
+            "Prometer no volver a gastar en nada",
+            "Armar una hoja gigante que abandonas",
+            "Sentir culpa cada fin de quincena"
+          ],
+          "goodTitle": "El hábito que sí funciona",
+          "goodItems": [
+            "Anotar 1 gasto diario en 30 segundos",
+            "Ponerle su etiqueta sin juzgarte",
+            "Ver tus fugas con claridad en 7 días"
+          ]
+        },
+        {
+          "type": "quote",
+          "theme": "warm",
+          "eyebrow": "Principio V.I.D.A.",
+          "quote": "“La claridad financiera empieza el día que dejas de adivinar en qué se va tu dinero.”",
+          "subnote": "Empieza hoy anotando solo un gasto."
+        },
+        {
+          "type": "cta",
+          "eyebrow": "Test V.I.D.A. · 3 minutos",
+          "headline": "¿Cómo está hoy tu equilibrio en 5 áreas?",
+          "body": "Evalúa gratis tu Mente, Tiempo, Energía, Dinero y Hábitos y recibe tu diagnóstico claro al instante.",
+          "badge": "Gratis · Sin crear cuenta · Enlace en la bio"
+        }
+      ]
+    }
+  ]
+}

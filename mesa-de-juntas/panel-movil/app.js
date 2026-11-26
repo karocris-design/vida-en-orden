@@ -1,17 +1,17 @@
 (() => {
-  const STORAGE_KEY = 'vida_en_orden_junta_v1';
+  const STORAGE_KEY = 'vida_en_orden_junta_v2';
   const REVENUE_GOAL = 10000;
 
   const ROADMAP_STAGES = [
     {
-      stage: 'Etapa 1 · Validar el Test V.I.D.A.',
+      stage: 'Etapa 1 · Validar el Test V.I.D.A. (Completada ✓)',
       tasks: [
         { id: 'e1_repo', label: 'Estructura del monorepo + tokens visuales unificados', defaultDone: true },
         { id: 'e1_pdf', label: 'Importar y analizar PDF original de 89 páginas desde Drive', defaultDone: true },
-        { id: 'e1_test', label: 'Construir Test V.I.D.A. (20 preguntas + radar + WhatsApp feedback)', defaultDone: true },
+        { id: 'e1_test', label: 'Construir Test V.I.D.A. (20 preguntas + radar + diagnóstico + Google Sheets)', defaultDone: true },
         { id: 'e1_junta', label: 'Construir Panel Móvil de Mesa de Juntas para iPhone', defaultDone: true },
-        { id: 'e1_deploy', label: 'Publicar en GitHub Pages / Vercel gratis ($0)', defaultDone: false },
-        { id: 'e1_family', label: 'Probar con esposa e hijas (15 y 9 años) y recolectar feedback', defaultDone: false }
+        { id: 'e1_deploy', label: 'Publicar en GitHub Pages gratis ($0) + guardado automático', defaultDone: true },
+        { id: 'e1_family', label: 'Probar en familia, agrandar letra y validar cierre y diagnóstico', defaultDone: true }
       ]
     },
     {
@@ -33,7 +33,7 @@
     {
       stage: 'Etapa 4 · Máquina de Marketing y Validación Comercial',
       tasks: [
-        { id: 'e4_carousels', label: 'Activar generador automático de Carruseles (HTML → PNG 1080×1350)', defaultDone: false },
+        { id: 'e4_carousels', label: 'Generador automático de Carruseles (1080×1350) + 4 carruseles listos', defaultDone: true },
         { id: 'e4_reels', label: 'Activar pipeline de Reels faceless (demos webapp + FFmpeg)', defaultDone: false },
         { id: 'e4_mac', label: 'Replicar Máquina de Marketing en tu Mac (setup-mac.sh)', defaultDone: false },
         { id: 'e4_adults', label: 'Validar interés y oferta con adultos del público objetivo', defaultDone: false }
@@ -51,29 +51,51 @@
   const MARKETING_PIECES = [
     {
       id: 'carrusel_01',
-      format: 'Carrusel · 1080×1350 (IG / TikTok / Pinterest)',
+      format: 'Carrusel #01 · 6 PNG 1080×1350 (LISTO ✓)',
       title: 'No necesitas productividad extrema, necesitas un Día Base',
       slides: [
         'Portada: No estás atrasado. Solo estás intentando vivir sin un Día Base.',
-        'Problema: Planear semanas perfectas que se rompen al primer imprevisto.',
-        'Sistema: 1 pausa mental + 1 prioridad real + 1 registro de gasto.',
-        'Cierre + CTA: Haz gratis el Test V.I.D.A. en 3 min (link en bio).'
+        'Contraste: Rutina rígida vs. Tu Día Base flexible.',
+        '3 piezas: Arranque limpio + 1 prioridad real + 1 hora de cierre.',
+        'Cierre + CTA: Test V.I.D.A. gratis en 3 min (link en bio).'
       ]
     },
     {
       id: 'carrusel_02',
-      format: 'Carrusel · 1080×1350 (IG / TikTok / Pinterest)',
+      format: 'Carrusel #02 · 6 PNG 1080×1350 (LISTO ✓)',
       title: 'La Triple Ancla para días caóticos',
       slides: [
         'Portada: Cuando el día se descontrola, no necesitas 20 hábitos. Necesitas 3.',
-        'Concepto: 1 acción para tu mente · 1 para tu día · 1 para tu dinero.',
+        'Fórmula: 1 para tu Mente · 1 para tu Día · 1 para tu Dinero/Orden.',
         'Frase del libro: “Lo pequeño, sostenido, sostiene todo.”',
         'Cierre + CTA: Descubre qué dimensión necesita orden primero en el Test V.I.D.A.'
       ]
     },
     {
+      id: 'carrusel_03',
+      format: 'Carrusel #03 · 6 PNG 1080×1350 (LISTO ✓)',
+      title: '¿Por qué terminas el día agotado si sientes que casi no avanzaste?',
+      slides: [
+        'Portada: La trampa silenciosa de cargar 30 pendientes abiertos en la cabeza.',
+        'Ejercicio 3 min: Escribe sin filtro → subraya 2 cosas → estaciona el resto.',
+        'Frase del libro: “Lo que escribo dejo de cargarlo.”',
+        'Cierre + CTA: Evalúa tus 5 dimensiones gratis en el Test V.I.D.A.'
+      ]
+    },
+    {
+      id: 'carrusel_04',
+      format: 'Carrusel #04 · 6 PNG 1080×1350 (LISTO ✓)',
+      title: 'El dinero no se arregla pensando. Se arregla registrando.',
+      slides: [
+        'Portada: Un método de 30 segundos al día sin Excels complicados.',
+        'Regla de 3 etiquetas: Necesario · Útil · Impulso (sin culpa).',
+        'Contraste: Prometer no gastar vs. anotar 1 gasto diario.',
+        'Cierre + CTA: Revisa tu equilibrio en 5 áreas con el Test V.I.D.A. gratis.'
+      ]
+    },
+    {
       id: 'reel_01',
-      format: 'Reel Faceless · 9:16 · 22 seg (Demo Webapp)',
+      format: 'Reel Faceless · 9:16 · 22 seg (Próximo)',
       title: '¿Por qué terminas cansado si sientes que no avanzaste?',
       slides: [
         '0–3s: Grabación móvil abriendo el Test V.I.D.A. con titular editorial.',

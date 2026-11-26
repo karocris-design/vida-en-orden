@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css?v=4" />
+  <link rel="stylesheet" href="./styles.css?v=5" />
 </head>
 <body>
   <div class="page-shell">
@@ -352,6 +352,26 @@
           <p class="bridge-footnote">
             Sin suscripciones mensuales ni cuentas obligatorias. Pagas una vez y es tuyo.
           </p>
+
+          <div class="waitlist-box" aria-label="Avisarme cuando salga el programa">
+            <p class="waitlist-title">¿Te gustaría que te avisemos en cuanto salga?</p>
+            <p class="waitlist-sub">Elige la opción que te llama más la atención y déjanos tu correo o WhatsApp (opcional):</p>
+            <div class="waitlist-tiers" id="waitlist-tier-group" role="radiogroup" aria-label="Edición de interés">
+              <button type="button" class="tier-pick" data-tier="PDF $99">PDF ($99 MXN)</button>
+              <button type="button" class="tier-pick active" data-tier="PDF + Webapp $199">PDF + Webapp ($199)</button>
+            </div>
+            <label for="waitlist-contact" class="sr-only">Correo o WhatsApp (opcional)</label>
+            <input
+              id="waitlist-contact"
+              type="text"
+              class="editorial-input"
+              placeholder="Tu correo o WhatsApp (opcional)"
+            />
+            <button type="button" id="btn-waitlist-submit" class="btn btn-primary btn-lg">
+              Quiero que me avisen cuando salga
+            </button>
+            <p id="waitlist-status" class="feedback-status" hidden></p>
+          </div>
         </section>
 
         <div class="completion-end-note">
@@ -368,6 +388,6 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
-  <script src="./app.js?v=4"></script>
+  <script src="./app.js?v=5"></script>
 </body>
 </html>
