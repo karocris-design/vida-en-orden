@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css?v=1" />
+  <link rel="stylesheet" href="./styles.css?v=2" />
 </head>
 <body>
   <div class="app-shell">
@@ -19,17 +19,81 @@
         <span class="brand-name">VIDA EN ORDEN</span>
         <span class="brand-sub">Sistema de 30 Días · 10 min/día</span>
       </a>
-      <button type="button" id="btn-open-access" class="tier-badge">
-        Muestra · Activar clave
-      </button>
+      <div class="topbar-right">
+        <button type="button" id="btn-open-welcome" class="map-chip">4 Fases</button>
+        <button type="button" id="btn-open-access" class="tier-badge">
+          Muestra · Clave
+        </button>
+      </div>
     </header>
+
+    <!-- PANTALLA INICIAL: RECORDATORIO DE LAS 4 FASES Y POR QUÉ VALE TU TIEMPO Y DINERO -->
+    <section id="view-welcome" hidden aria-label="Antes de empezar: tus 4 fases">
+      <article class="card card-sage">
+        <p class="eyebrow">Antes de empezar · Mapa del Sistema</p>
+        <h1 class="serif-title">¿Para qué invertir 10 minutos al día (y tu dinero) en estos 30 días?</h1>
+        <p class="copy">
+          Esto no es un curso largo ni teoría motivacional que se olvida el lunes. Es un <strong>recorrido guiado en 4 fases</strong> para quitar el ruido de tu cabeza, ordenar tu rutina y tomar control real de tu dinero — y que ese orden siga funcionando después del Día 30.
+        </p>
+
+        <div class="value-grid">
+          <div class="value-item">
+            <span class="value-ico">🧠</span>
+            <div>
+              <strong>Calma mental medible</strong>
+              <span>Dejas de cargar pendientes en la cabeza y tienes un botón de rescate (Hoja SOS) para días pesados.</span>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-ico">🧭</span>
+            <div>
+              <strong>Orden real en solo 10 minutos al día</strong>
+              <span>Un Día Base y una Triple Ancla diseñados para días normales y días caóticos, sin agendas rígidas.</span>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-ico">💵</span>
+            <div>
+              <strong>Tranquilidad con tu dinero</strong>
+              <span>Identificas fugas pequeñas y decides sin culpa con la Regla 3–2–1 en menos de 1 minuto al día.</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">Qué logras en cada una de las 4 fases</p>
+        <h2 class="section-title">Tu camino paso a paso (Semana por semana)</h2>
+        <p class="copy-sm">Cada fase prepara la siguiente para que no te satures intentando cambiar todo el mismo día:</p>
+        <div id="welcome-phases-list" class="phases-stack"></div>
+      </article>
+
+      <article id="welcome-invest-card" class="card card-warm">
+        <p class="eyebrow" style="color: var(--accent);">¿Por qué vale la pena tu inversión? (Pago único · Sin suscripciones)</p>
+        <h2 class="section-title">Un sistema que te queda para siempre</h2>
+        <div class="invest-strip">
+          <div class="invest-box">
+            <strong>Edición Esencial · $99 MXN</strong>
+            <p>Te llevas el <strong>libro PDF completo (87 págs.)</strong> + <strong>Fase 1 interactiva (Días 1–7) + Hoja SOS y Descarga Mental</strong> en tu celular. Ideal para sentir alivio real desde tu primera semana.</p>
+          </div>
+          <div class="invest-box invest-featured">
+            <strong>Edición Completa · $199 MXN (menos de $7 pesos por día)</strong>
+            <p>Incluye todo lo de Esencial + <strong>las 4 Fases completas (30 días)</strong>, Día Base, Triple Ancla, Dinero 3–2–1 y Comparativa Día 1 vs. Día 30 para ver tu cambio real.</p>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button type="button" id="btn-welcome-start" class="btn btn-primary btn-full">Probar el Día 1 gratis ahora →</button>
+          <button type="button" id="btn-welcome-key" class="btn btn-secondary btn-full">Ya tengo mi clave de acceso</button>
+        </div>
+      </article>
+    </section>
 
     <div id="access-banner" class="demo-banner" hidden>
       <strong id="access-banner-title">Modo muestra gratis (Día 1)</strong>
       <p id="access-banner-body">Prueba el Día 1 completo sin costo. Si ya adquiriste tu edición Esencial ($99) o Completa ($199), ingresa tu clave para desbloquear tu plan.</p>
       <div class="btn-row">
         <button type="button" id="btn-banner-unlock" class="btn btn-primary btn-sm">Ingresar clave de acceso</button>
-        <a href="../index.html" class="btn btn-secondary btn-sm">Volver al Test V.I.D.A.</a>
+        <button type="button" id="btn-banner-phases" class="btn btn-secondary btn-sm">Ver qué incluye cada fase</button>
       </div>
     </div>
 
@@ -49,7 +113,7 @@
           </div>
 
           <div id="week-tabs" class="week-tabs" role="tablist" aria-label="Semanas del programa"></div>
-          <p id="week-motto" class="copy-sm" style="margin-bottom: 12px;"></p>
+          <div id="week-motto" class="week-purpose-box"></div>
           <div id="days-grid" class="days-grid" aria-label="Días de la semana"></div>
         </article>
 
@@ -357,6 +421,6 @@
   </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-  <script src="./app.js?v=1"></script>
+  <script src="./app.js?v=2"></script>
 </body>
 </html>

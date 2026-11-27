@@ -30,6 +30,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 html {
   font-size: 17px;
@@ -94,6 +95,27 @@ body {
   color: var(--text-muted);
 }
 
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-chip {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-muted);
+  color: var(--text-primary);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+
 .tier-badge {
   font-size: 0.78rem;
   font-weight: 700;
@@ -118,6 +140,157 @@ body {
   background: var(--primary-soft);
   color: var(--primary-hover);
   border-color: #C2D2C5;
+}
+
+/* WELCOME / 4 PHASES GUIDE */
+.value-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 14px 0 6px;
+}
+
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.value-ico {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.value-item strong {
+  display: block;
+  font-size: 0.96rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.value-item span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.phases-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.phase-card {
+  background: var(--bg-primary);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.phase-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.phase-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.phase-plan-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-secondary);
+}
+
+.phase-plan-tag.tag-esencial {
+  background: var(--primary-soft);
+  border-color: #BDD0C1;
+  color: var(--primary-hover);
+}
+
+.phase-card h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-size: 1.16rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.phase-why {
+  margin: 0 0 8px;
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+}
+
+.phase-gain {
+  margin: 0;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border-strong);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.invest-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 12px 0 16px;
+}
+
+.invest-box {
+  background: var(--bg-primary);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.invest-box.invest-featured {
+  background: #F4F8F5;
+  border-color: var(--primary);
+}
+
+.invest-box > strong {
+  display: block;
+  font-size: 0.98rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.invest-box p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.week-purpose-box {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 13px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.week-purpose-box strong {
+  color: var(--text-primary);
 }
 
 /* CARDS & TYPE */

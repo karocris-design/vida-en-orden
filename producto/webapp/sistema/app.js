@@ -46,6 +46,7 @@
     const d1 = importDay1FromTest();
     return {
       tier: 'demo', // 'demo' | 'esencial' | 'completa'
+      seenWelcome: false,
       activeWeek: 1,
       selectedDay: 1,
       days: {}, // { "1": { done, microDone, expenseDone, tpuText, tpuDone, notes, completedAt } }
@@ -246,8 +247,91 @@
     }
   });
 
-  // Navegación inferior
+  // Navegación inferior + Pantalla inicial de 4 Fases
+  const welcomeEl = document.getElementById('view-welcome');
+  const appViewsEl = document.getElementById('app-views');
+  let welcomeVisible = false;
+
+  function setWelcomeVisible(show) {
+    welcomeVisible = Boolean(show);
+    welcomeEl.hidden = !welcomeVisible;
+    appViewsEl.hidden = welcomeVisible;
+    const banner = document.getElementById('access-banner');
+    if (welcomeVisible) {
+      banner.hidden = true;
+    } else {
+      renderAccessUI();
+    }
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, 0); }
+  }
+
+  function renderWelcome() {
+    if (!contentData) return;
+    const list = document.getElementById('welcome-phases-list');
+    list.innerHTML = '';
+    const colors = { 1: '#4A5D4E', 2: '#C67D5B', 3: '#9B7B54', 4: '#5F6F7E' };
+
+    contentData.weeks.forEach(w => {
+      const accent = colors[w.number] || '#4A5D4E';
+      const isEsencial = w.number === 1;
+      const planLabel = isEsencial ? 'Desde Esencial ($99)' : 'Completa ($199)';
+      const gains = (w.expectedOutcome || []).slice(0, 2).join(' ');
+      const card = document.createElement('div');
+      card.className = 'phase-card';
+      card.style.borderLeft = `5px solid ${accent}`;
+      card.innerHTML = `
+        <div class="phase-head">
+          <span class="phase-num" style="color:${accent};">Fase ${w.number} · ${esc(w.daysRange)}</span>
+          <span class="phase-plan-tag ${isEsencial ? 'tag-esencial' : ''}">${planLabel}</span>
+        </div>
+        <h3>${esc(w.title)}</h3>
+        <p class="phase-why"><strong>Para qué sirve:</strong> ${esc(w.focus)}</p>
+        <p class="phase-gain"><strong>Qué te llevas:</strong> ${esc(gains)}</p>
+      `;
+      list.appendChild(card);
+    });
+
+    const startBtn = document.getElementById('btn-welcome-start');
+    const keyBtn = document.getElementById('btn-welcome-key');
+    if (state.tier === 'completa') {
+      startBtn.textContent = 'Ir a mi recorrido de 30 días →';
+      keyBtn.hidden = true;
+    } else if (state.tier === 'esencial') {
+      startBtn.textContent = 'Ir a mi Semana 1 y Hoja SOS →';
+      keyBtn.hidden = false;
+      keyBtn.textContent = 'Subir a Edición Completa (tengo clave)';
+    } else {
+      startBtn.textContent = 'Probar el Día 1 gratis ahora →';
+      keyBtn.hidden = false;
+      keyBtn.textContent = 'Ya tengo mi clave de acceso';
+    }
+  }
+
+  document.getElementById('btn-open-welcome').addEventListener('click', () => {
+    renderWelcome();
+    setWelcomeVisible(!welcomeVisible);
+  });
+
+  document.getElementById('btn-banner-phases').addEventListener('click', () => {
+    renderWelcome();
+    setWelcomeVisible(true);
+  });
+
+  document.getElementById('btn-welcome-start').addEventListener('click', () => {
+    state.seenWelcome = true;
+    saveState();
+    setWelcomeVisible(false);
+    switchTab('dias');
+  });
+
+  document.getElementById('btn-welcome-key').addEventListener('click', openAccessModal);
+
   function switchTab(tabId) {
+    if (welcomeVisible) {
+      state.seenWelcome = true;
+      saveState();
+      setWelcomeVisible(false);
+    }
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tabId));
     document.querySelectorAll('.tab-panel').forEach(p => { p.hidden = p.id !== `tab-${tabId}`; });
     try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, 0); }
@@ -275,16 +359,16 @@
       planH.textContent = 'Edición Completa (30 Días) ✓';
       planD.textContent = 'Tienes acceso ilimitado a las 4 semanas, Hoja SOS, Descarga Mental, Triple Ancla, Día Base, Dinero 3–2–1 y Comparativa Día 1 vs. Día 30.';
     } else if (state.tier === 'esencial') {
-      badge.textContent = 'Esencial · Sem. 1 + SOS';
+      badge.textContent = 'Esencial · Sem. 1';
       badge.classList.add('tier-esencial');
-      banner.hidden = false;
-      bTitle.textContent = 'Edición Esencial activa (Semana 1 + Hoja SOS)';
-      bBody.textContent = 'Ya tienes los Días 1 al 7, la Descarga Mental y tu Hoja SOS listos. Cuando quieras subir a los 30 días completos + Día Base + Dinero 3–2–1, activa tu clave Completa.';
+      banner.hidden = welcomeVisible;
+      bTitle.textContent = 'Edición Esencial activa (Fase 1 · Semana 1 + Hoja SOS)';
+      bBody.textContent = 'Ya tienes los Días 1 al 7, la Descarga Mental y tu Hoja SOS listos. Cuando quieras desbloquear las Fases 2, 3 y 4 (Días 8–30 + Día Base + Dinero 3–2–1), activa tu clave Completa.';
       planH.textContent = 'Edición Esencial ($99) ✓';
-      planD.textContent = 'Incluye Semana 1 (Días 1–7), Descarga Mental y Hoja SOS interactiva. Puedes subir a Edición Completa ($199) cuando gustes ingresando tu nueva clave.';
+      planD.textContent = 'Incluye Fase 1 (Días 1–7), Descarga Mental y Hoja SOS interactiva. Puedes subir a Edición Completa ($199) cuando gustes ingresando tu nueva clave.';
     } else {
-      badge.textContent = 'Muestra · Activar clave';
-      banner.hidden = false;
+      badge.textContent = 'Muestra · Clave';
+      banner.hidden = welcomeVisible;
       bTitle.textContent = 'Modo muestra gratis (Día 1)';
       bBody.textContent = 'Prueba el Día 1 completo sin costo. Si ya adquiriste tu edición Esencial ($99) o Completa ($199), toca el botón para activar tu clave.';
       planH.textContent = 'Modo Muestra (Día 1 gratis)';
@@ -338,7 +422,7 @@
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'week-tab' + (state.activeWeek === w.number ? ' active' : '') + (isLockedWeek ? ' locked' : '');
-      btn.innerHTML = `Sem. ${w.number} ${isLockedWeek ? '🔒' : ''}<span>${w.daysRange.replace('Días ', 'D')}</span>`;
+      btn.innerHTML = `Fase ${w.number} ${isLockedWeek ? '🔒' : ''}<span>${w.daysRange.replace('Días ', 'D')}</span>`;
       btn.addEventListener('click', () => {
         state.activeWeek = w.number;
         const firstDayOfWeek = w.days[0].day;
@@ -350,7 +434,11 @@
     });
 
     const weekObj = contentData.weeks.find(w => w.number === state.activeWeek) || contentData.weeks[0];
-    document.getElementById('week-motto').innerHTML = `<strong>Semana ${weekObj.number} · ${esc(weekObj.title)}:</strong> <em>“${esc(weekObj.motto)}”</em>`;
+    const firstOutcome = (weekObj.expectedOutcome && weekObj.expectedOutcome[0]) ? weekObj.expectedOutcome[0] : '';
+    document.getElementById('week-motto').innerHTML = `
+      <strong>Fase ${weekObj.number} · ${esc(weekObj.title)}:</strong> ${esc(weekObj.focus)}<br/>
+      <span><em>Resultado esperado:</em> ${esc(firstOutcome)}</span>
+    `;
 
     // Grid de días de la semana
     const dGrid = document.getElementById('days-grid');
@@ -1001,6 +1089,7 @@
 
   function renderAll() {
     renderAccessUI();
+    renderWelcome();
     renderDaysTab();
     renderSosTab();
     renderBaseTab();
@@ -1017,6 +1106,9 @@
       allDays = [];
       data.weeks.forEach(w => w.days.forEach(d => allDays.push(d)));
       renderAll();
+      if (!state.seenWelcome) {
+        setWelcomeVisible(true);
+      }
     })
     .catch(() => {
       document.getElementById('day-content-area').innerHTML =
