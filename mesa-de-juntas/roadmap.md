@@ -9,7 +9,7 @@
 - [x] Probar el Test en familia, ajustar legibilidad, cierre y diagnóstico completo
 
 ## Etapa 2 — Corregir y Pulir el PDF (89 páginas)
-- [ ] Ejecutar auditoría completa (ver `producto/pdf-fuente/auditoria-editorial.md`)
+- [x] Ejecutar auditoría completa (ver `producto/pdf-fuente/auditoria-editorial.md`)
 - [ ] Retirar firma personal, iniciales y metadatos de autor en el PDF
 - [ ] Hacer opcionales las referencias espirituales (oración/versículo)
 - [ ] Corregir títulos duplicados (ej. `SEMANA 4 — ORDEN DEL DINERO`), actividades repetidas y numeración
