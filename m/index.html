@@ -56,32 +56,39 @@
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     body {
       margin: 0;
-      padding: calc(14px + env(safe-area-inset-top)) 14px calc(34px + env(safe-area-inset-bottom));
+      padding: calc(14px + env(safe-area-inset-top)) 14px calc(36px + env(safe-area-inset-bottom));
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
       color: var(--fg);
       line-height: 1.45;
     }
-    .wrap { max-width: 1240px; margin: 0 auto; }
+    .wrap { max-width: 1440px; margin: 0 auto; }
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 10px;
       margin-bottom: 14px;
+      flex-wrap: wrap;
     }
     h1 { font-size: 21px; font-weight: 800; margin: 0; letter-spacing: -0.02em; }
     .meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .head-actions { display: flex; gap: 8px; flex-shrink: 0; }
     .btn {
       padding: 9px 14px;
       border-radius: 10px;
-      border: none;
-      background: var(--accent);
-      color: var(--accent-fg);
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--fg);
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       flex-shrink: 0;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-fg);
+      border-color: transparent;
     }
     .btn:active { opacity: 0.8; transform: scale(0.98); }
     .filters {
@@ -89,7 +96,7 @@
       gap: 8px;
       overflow-x: auto;
       padding-bottom: 10px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       scrollbar-width: none;
     }
     .filters::-webkit-scrollbar { display: none; }
@@ -109,13 +116,25 @@
       color: var(--accent-fg);
       border-color: transparent;
     }
+
+    /* Main Layout: Kanban + Right Notes Sidebar */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 1120px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
     .board {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      gap: 12px;
       align-items: start;
     }
-    @media (max-width: 1080px) {
+    @media (max-width: 1320px) {
       .board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 680px) {
@@ -125,23 +144,23 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 14px;
+      padding: 13px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 11px;
     }
     .col-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 8px;
-      padding-bottom: 10px;
+      padding-bottom: 9px;
       border-bottom: 1px solid var(--border);
     }
     .col-title {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       font-size: 14px;
       font-weight: 800;
       margin: 0;
@@ -162,22 +181,22 @@
       background: var(--card-inner);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 14px;
+      padding: 13px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 9px;
     }
     .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
-    .card-name { display: flex; align-items: center; gap: 7px; font-size: 15px; font-weight: 800; margin: 0; }
+    .card-name { display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 800; margin: 0; }
     .card-date { font-size: 11px; color: var(--muted); margin-top: 2px; }
-    .pct { font-size: 17px; font-weight: 800; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+    .pct { font-size: 16px; font-weight: 800; font-variant-numeric: tabular-nums; flex-shrink: 0; }
     .bar { height: 6px; background: var(--border); border-radius: 999px; overflow: hidden; }
     .fill { height: 100%; border-radius: 999px; }
     .box-inst {
       background: var(--inst-bg);
       border: 1px solid var(--inst-bd);
       border-radius: 10px;
-      padding: 9px 11px;
+      padding: 8px 10px;
     }
     .box-warn {
       background: var(--warn-bg);
@@ -191,7 +210,7 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 9px 11px;
+      padding: 8px 10px;
     }
     .lbl {
       font-size: 11px;
@@ -208,10 +227,99 @@
     .empty {
       border: 1px dashed var(--border);
       border-radius: 12px;
-      padding: 20px 10px;
+      padding: 18px 10px;
       text-align: center;
       font-size: 12px;
       color: var(--muted);
+    }
+
+    /* Notes Sidebar */
+    .notes-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: sticky;
+      top: 14px;
+    }
+    .notes-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid var(--border);
+    }
+    .notes-head h2 { font-size: 15px; font-weight: 800; margin: 0; }
+    .note-form { display: flex; flex-direction: column; gap: 8px; }
+    .note-select, .note-input {
+      width: 100%;
+      padding: 9px 11px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card-inner);
+      color: var(--fg);
+      font-family: inherit;
+      font-size: 13px;
+    }
+    .note-input { resize: vertical; min-height: 68px; }
+    .note-list { display: flex; flex-direction: column; gap: 8px; }
+    .note-item {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .note-item.done { opacity: 0.6; }
+    .note-item input[type="checkbox"] { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--accent); flex-shrink: 0; }
+    .note-body { flex: 1; min-width: 0; }
+    .note-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 3px; }
+    .note-tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 999px;
+      background: var(--inst-bg);
+      color: var(--accent);
+      border: 1px solid var(--inst-bd);
+    }
+    .note-time { font-size: 10px; color: var(--muted); }
+    .note-text { margin: 0; font-size: 13px; color: var(--fg); word-break: break-word; }
+    .note-item.done .note-text { text-decoration: line-through; color: var(--muted); }
+    .note-del {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0 3px;
+      line-height: 1;
+    }
+    .notes-footer {
+      display: flex;
+      gap: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .notes-footer .btn { flex: 1; text-align: center; padding: 9px 10px; font-size: 12px; }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 16px;
+      background: var(--fg);
+      color: var(--bg);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      display: none;
+      z-index: 99;
     }
     .err-bar {
       background: var(--warn-bg);
@@ -228,11 +336,13 @@
   <div id="root" class="wrap">
     <div class="center-msg">Cargando tu tablero desde Google Sheets...</div>
   </div>
+  <div id="toast" class="toast"></div>
 
   <script>
     (function () {
       const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQQvAqRtPj_lLBGKCvmbcWI3wLH4lWmuTjyJDMoUFYXm4DWfJqzNTVH6kmYKt-qrTUp8caF68bpBpg8/pub?output=csv';
       const CACHE_KEY = 'kanban_sheet_cache_v1';
+      const NOTES_KEY = 'kanban_quick_notes_v1';
 
       const COLUMNS = [
         { id: 'Listo hoy', title: '⚡ Listo hoy', desc: 'Puedes avanzar ahora', dot: 'var(--ok)' },
@@ -252,6 +362,7 @@
       let selectedGroup = 'Todos';
       let lastSyncLabel = '';
       let lastError = '';
+      let notes = loadNotes();
 
       function esc(s) {
         return String(s || '')
@@ -259,6 +370,43 @@
           .replace(/</g, '&lt;')
           .replace(/>/g, '&gt;')
           .replace(/"/g, '&quot;');
+      }
+
+      function showToast(msg) {
+        const el = document.getElementById('toast');
+        el.textContent = msg;
+        el.style.display = 'block';
+        clearTimeout(el._t);
+        el._t = setTimeout(() => { el.style.display = 'none'; }, 2200);
+      }
+
+      function loadNotes() {
+        try {
+          const raw = localStorage.getItem(NOTES_KEY);
+          if (raw) return JSON.parse(raw);
+        } catch (_) {}
+        return [];
+      }
+
+      function saveNotes() {
+        try { localStorage.setItem(NOTES_KEY, JSON.stringify(notes)); } catch (_) {}
+      }
+
+      function copyText(text, okMsg) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => showToast(okMsg)).catch(() => fallbackCopy(text, okMsg));
+        } else {
+          fallbackCopy(text, okMsg);
+        }
+      }
+
+      function fallbackCopy(text, okMsg) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); showToast(okMsg); } catch (_) { showToast('No se pudo copiar'); }
+        document.body.removeChild(ta);
       }
 
       function parseCSV(text) {
@@ -332,6 +480,49 @@
         return GROUP_COLORS[item.grupo] || FALLBACK_COLORS[idx % FALLBACK_COLORS.length];
       }
 
+      function renderNotesSection() {
+        const openCount = notes.filter(n => !n.done).length;
+        const listHtml = notes.length ? notes.map((n, idx) => `
+          <div class="note-item ${n.done ? 'done' : ''}">
+            <input type="checkbox" data-note-toggle="${idx}" ${n.done ? 'checked' : ''} />
+            <div class="note-body">
+              <div class="note-meta">
+                <span class="note-tag">${esc(n.tag)}</span>
+                <span class="note-time">${esc(n.at)}</span>
+              </div>
+              <p class="note-text">${esc(n.text)}</p>
+            </div>
+            <button type="button" class="note-del" data-note-del="${idx}" aria-label="Borrar">✕</button>
+          </div>
+        `).join('') : `<div class="empty">Anota aquí ideas o pendientes rápidos para luego pegarlos en el chat.</div>`;
+
+        return `
+          <aside id="notes-anchor" class="notes-panel">
+            <div class="notes-head">
+              <h2>📝 Notas rápidas</h2>
+              <span class="count">${openCount}</span>
+            </div>
+            <form id="note-form" class="note-form">
+              <select id="note-tag" class="note-select">
+                <option value="General">General</option>
+                <option value="Motivación">Motivación</option>
+                <option value="EducArte">EducArte</option>
+                <option value="VIDA EN ORDEN">VIDA EN ORDEN</option>
+              </select>
+              <textarea id="note-text" class="note-input" placeholder="Escribe una idea, ajuste o recordatorio..."></textarea>
+              <button type="submit" class="btn btn-primary">Guardar nota</button>
+            </form>
+            <div class="note-list">${listHtml}</div>
+            ${notes.length ? `
+              <div class="notes-footer">
+                <button type="button" id="btn-copy-notes" class="btn btn-primary">📋 Copiar para el chat</button>
+                <button type="button" id="btn-clear-done" class="btn">Limpiar hechas</button>
+              </div>
+            ` : ''}
+          </aside>
+        `;
+      }
+
       function render() {
         const groups = ['Todos'];
         currentRows.forEach(r => {
@@ -398,26 +589,99 @@
           `;
         }).join('');
 
+        const openNotes = notes.filter(n => !n.done).length;
+
         document.getElementById('root').innerHTML = `
           <header>
             <div>
               <h1>Mis Proyectos</h1>
               <div class="meta">${esc(lastSyncLabel || 'Conectado a tu Google Sheet')}</div>
             </div>
-            <button id="btn-refresh" type="button" class="btn">↻ Actualizar</button>
+            <div class="head-actions">
+              <button id="btn-jump-notes" type="button" class="btn">📝 Notas (${openNotes})</button>
+              <button id="btn-refresh" type="button" class="btn btn-primary">↻ Actualizar</button>
+            </div>
           </header>
           ${lastError ? `<div class="err-bar">${esc(lastError)}</div>` : ''}
           <div class="filters">${filtersHtml}</div>
-          <main class="board">${boardHtml}</main>
+          <div class="layout">
+            <main class="board">${boardHtml}</main>
+            ${renderNotesSection()}
+          </div>
         `;
 
         document.getElementById('btn-refresh').addEventListener('click', loadFromSheet);
+        document.getElementById('btn-jump-notes').addEventListener('click', () => {
+          const el = document.getElementById('notes-anchor');
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
         document.querySelectorAll('[data-group]').forEach(btn => {
           btn.addEventListener('click', () => {
             selectedGroup = btn.dataset.group;
             render();
           });
         });
+
+        const form = document.getElementById('note-form');
+        if (form) {
+          form.addEventListener('submit', e => {
+            e.preventDefault();
+            const txtEl = document.getElementById('note-text');
+            const tagEl = document.getElementById('note-tag');
+            const text = txtEl.value.trim();
+            if (!text) return;
+            const now = new Date();
+            const at = now.toLocaleDateString('es-MX', { day: 'numeric', month: 'short' }) + ' · ' +
+                       now.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
+            notes.unshift({ tag: tagEl.value, text, at, done: false });
+            saveNotes();
+            render();
+            showToast('Nota guardada');
+          });
+        }
+
+        document.querySelectorAll('[data-note-toggle]').forEach(cb => {
+          cb.addEventListener('change', () => {
+            const idx = Number(cb.dataset.noteToggle);
+            if (notes[idx]) {
+              notes[idx].done = cb.checked;
+              saveNotes();
+              render();
+            }
+          });
+        });
+
+        document.querySelectorAll('[data-note-del]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = Number(btn.dataset.noteDel);
+            notes.splice(idx, 1);
+            saveNotes();
+            render();
+            showToast('Nota eliminada');
+          });
+        });
+
+        const copyBtn = document.getElementById('btn-copy-notes');
+        if (copyBtn) {
+          copyBtn.addEventListener('click', () => {
+            const pending = notes.filter(n => !n.done);
+            const target = pending.length ? pending : notes;
+            const lines = ['Aquí van mis notas rápidas del tablero para seguirle:', ''];
+            target.forEach(n => lines.push(`• [${n.tag}] ${n.text} (${n.at})`));
+            copyText(lines.join('\n'), 'Notas copiadas listas para pegar en el chat');
+          });
+        }
+
+        const clearBtn = document.getElementById('btn-clear-done');
+        if (clearBtn) {
+          clearBtn.addEventListener('click', () => {
+            notes = notes.filter(n => !n.done);
+            saveNotes();
+            render();
+            showToast('Notas hechas limpiadas');
+          });
+        }
       }
 
       async function loadFromSheet() {
@@ -453,7 +717,7 @@
             render();
           } else {
             document.getElementById('root').innerHTML =
-              '<div class="center-msg">No se pudo leer tu Google Sheet (' + esc(err.message) + ').<br><br><button class="btn" onclick="location.reload()">Reintentar</button></div>';
+              '<div class="center-msg">No se pudo leer tu Google Sheet (' + esc(err.message) + ').<br><br><button class="btn btn-primary" onclick="location.reload()">Reintentar</button></div>';
           }
         }
       }
