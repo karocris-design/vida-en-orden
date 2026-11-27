@@ -30,6 +30,7 @@
       --c2: #2563eb;
       --c3: #7c3aed;
       --c4: #c2410c;
+      --c5: #db2777;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -51,6 +52,7 @@
         --c2: #60a5fa;
         --c3: #a78bfa;
         --c4: #fb923c;
+        --c5: #f472b6;
       }
     }
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -117,10 +119,9 @@
       border-color: transparent;
     }
 
-    /* Main Layout: Kanban + Right Notes Sidebar */
     .layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 320px;
+      grid-template-columns: minmax(0, 1fr) 330px;
       gap: 16px;
       align-items: start;
     }
@@ -233,7 +234,6 @@
       color: var(--muted);
     }
 
-    /* Notes Sidebar */
     .notes-panel {
       background: var(--card);
       border: 1px solid var(--border);
@@ -241,7 +241,7 @@
       padding: 15px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 11px;
       position: sticky;
       top: 14px;
     }
@@ -254,6 +254,7 @@
       border-bottom: 1px solid var(--border);
     }
     .notes-head h2 { font-size: 15px; font-weight: 800; margin: 0; }
+    .notes-sync { font-size: 11px; color: var(--muted); margin-top: 2px; }
     .note-form { display: flex; flex-direction: column; gap: 8px; }
     .note-select, .note-input {
       width: 100%;
@@ -341,8 +342,9 @@
   <script>
     (function () {
       const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQQvAqRtPj_lLBGKCvmbcWI3wLH4lWmuTjyJDMoUFYXm4DWfJqzNTVH6kmYKt-qrTUp8caF68bpBpg8/pub?output=csv';
-      const CACHE_KEY = 'kanban_sheet_cache_v1';
-      const NOTES_KEY = 'kanban_quick_notes_v1';
+      const NOTES_API_URL = 'https://script.google.com/macros/s/AKfycbwws9_YPS9f7TeR-cQbMYkqgSe4ayFxfO4IxBB3EtsqpvdKIEpcEXRLiajb96GC4sZm2A/exec';
+      const CACHE_KEY = 'kanban_sheet_cache_v2';
+      const NOTES_CACHE_KEY = 'kanban_cloud_notes_v2';
 
       const COLUMNS = [
         { id: 'Listo hoy', title: '⚡ Listo hoy', desc: 'Puedes avanzar ahora', dot: 'var(--ok)' },
@@ -354,15 +356,18 @@
       const GROUP_COLORS = {
         'VIDA EN ORDEN': 'var(--c1)',
         'EducArte': 'var(--c2)',
-        'Motivación': 'var(--c3)'
+        'Motivación': 'var(--c3)',
+        'Arcoíris de Fe': 'var(--c5)'
       };
-      const FALLBACK_COLORS = ['var(--c1)', 'var(--c2)', 'var(--c3)', 'var(--c4)'];
+      const FALLBACK_COLORS = ['var(--c1)', 'var(--c2)', 'var(--c3)', 'var(--c4)', 'var(--c5)'];
 
       let currentRows = [];
       let selectedGroup = 'Todos';
       let lastSyncLabel = '';
       let lastError = '';
-      let notes = loadNotes();
+      let notes = loadNotesCache();
+      let notesSyncLabel = 'Sincronizando...';
+      let selectedNoteTag = 'General';
 
       function esc(s) {
         return String(s || '')
@@ -380,16 +385,16 @@
         el._t = setTimeout(() => { el.style.display = 'none'; }, 2200);
       }
 
-      function loadNotes() {
+      function loadNotesCache() {
         try {
-          const raw = localStorage.getItem(NOTES_KEY);
+          const raw = localStorage.getItem(NOTES_CACHE_KEY);
           if (raw) return JSON.parse(raw);
         } catch (_) {}
         return [];
       }
 
-      function saveNotes() {
-        try { localStorage.setItem(NOTES_KEY, JSON.stringify(notes)); } catch (_) {}
+      function saveNotesCache() {
+        try { localStorage.setItem(NOTES_CACHE_KEY, JSON.stringify(notes)); } catch (_) {}
       }
 
       function copyText(text, okMsg) {
@@ -480,11 +485,68 @@
         return GROUP_COLORS[item.grupo] || FALLBACK_COLORS[idx % FALLBACK_COLORS.length];
       }
 
+      async function loadNotesFromCloud() {
+        notesSyncLabel = 'Sincronizando notas...';
+        try {
+          const res = await fetch(NOTES_API_URL + '?_t=' + Date.now(), {
+            method: 'GET',
+            credentials: 'omit',
+            redirect: 'follow',
+            cache: 'no-store'
+          });
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const data = await res.json();
+          if (data && Array.isArray(data.notes)) {
+            notes = data.notes;
+            saveNotesCache();
+            const hora = new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
+            notesSyncLabel = 'Sincronizadas iPhone ↔ Mac · ' + hora;
+            render();
+          }
+        } catch (err) {
+          notesSyncLabel = 'Guardado local (sin conexión ahora)';
+          render();
+        }
+      }
+
+      async function sendNoteAction(payload) {
+        notesSyncLabel = 'Guardando en la nube...';
+        render();
+        try {
+          await fetch(NOTES_API_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            credentials: 'omit',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload)
+          });
+          setTimeout(loadNotesFromCloud, 900);
+        } catch (_) {
+          notesSyncLabel = 'Guardado local (reintenta luego)';
+          render();
+        }
+      }
+
+      function getNoteTagOptions() {
+        const tags = ['General'];
+        currentRows.forEach(r => {
+          if (r.grupo && !tags.includes(r.grupo)) tags.push(r.grupo);
+        });
+        ['Motivación', 'EducArte', 'VIDA EN ORDEN', 'Arcoíris de Fe'].forEach(t => {
+          if (!tags.includes(t)) tags.push(t);
+        });
+        return tags;
+      }
+
       function renderNotesSection() {
         const openCount = notes.filter(n => !n.done).length;
-        const listHtml = notes.length ? notes.map((n, idx) => `
+        const tagOptions = getNoteTagOptions().map(t =>
+          `<option value="${esc(t)}" ${t === selectedNoteTag ? 'selected' : ''}>${esc(t)}</option>`
+        ).join('');
+
+        const listHtml = notes.length ? notes.map(n => `
           <div class="note-item ${n.done ? 'done' : ''}">
-            <input type="checkbox" data-note-toggle="${idx}" ${n.done ? 'checked' : ''} />
+            <input type="checkbox" data-note-toggle="${esc(n.id)}" ${n.done ? 'checked' : ''} />
             <div class="note-body">
               <div class="note-meta">
                 <span class="note-tag">${esc(n.tag)}</span>
@@ -492,23 +554,21 @@
               </div>
               <p class="note-text">${esc(n.text)}</p>
             </div>
-            <button type="button" class="note-del" data-note-del="${idx}" aria-label="Borrar">✕</button>
+            <button type="button" class="note-del" data-note-del="${esc(n.id)}" aria-label="Borrar">✕</button>
           </div>
-        `).join('') : `<div class="empty">Anota aquí ideas o pendientes rápidos para luego pegarlos en el chat.</div>`;
+        `).join('') : `<div class="empty">Escribe aquí una nota rápida y aparecerá en tu iPhone, tu Mac y el chat.</div>`;
 
         return `
           <aside id="notes-anchor" class="notes-panel">
             <div class="notes-head">
-              <h2>📝 Notas rápidas</h2>
+              <div>
+                <h2>📝 Notas rápidas</h2>
+                <div class="notes-sync">${esc(notesSyncLabel)}</div>
+              </div>
               <span class="count">${openCount}</span>
             </div>
             <form id="note-form" class="note-form">
-              <select id="note-tag" class="note-select">
-                <option value="General">General</option>
-                <option value="Motivación">Motivación</option>
-                <option value="EducArte">EducArte</option>
-                <option value="VIDA EN ORDEN">VIDA EN ORDEN</option>
-              </select>
+              <select id="note-tag" class="note-select">${tagOptions}</select>
               <textarea id="note-text" class="note-input" placeholder="Escribe una idea, ajuste o recordatorio..."></textarea>
               <button type="submit" class="btn btn-primary">Guardar nota</button>
             </form>
@@ -610,7 +670,10 @@
           </div>
         `;
 
-        document.getElementById('btn-refresh').addEventListener('click', loadFromSheet);
+        document.getElementById('btn-refresh').addEventListener('click', () => {
+          loadFromSheet();
+          loadNotesFromCloud();
+        });
         document.getElementById('btn-jump-notes').addEventListener('click', () => {
           const el = document.getElementById('notes-anchor');
           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -623,6 +686,11 @@
           });
         });
 
+        const tagSel = document.getElementById('note-tag');
+        if (tagSel) {
+          tagSel.addEventListener('change', () => { selectedNoteTag = tagSel.value; });
+        }
+
         const form = document.getElementById('note-form');
         if (form) {
           form.addEventListener('submit', e => {
@@ -634,31 +702,40 @@
             const now = new Date();
             const at = now.toLocaleDateString('es-MX', { day: 'numeric', month: 'short' }) + ' · ' +
                        now.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
-            notes.unshift({ tag: tagEl.value, text, at, done: false });
-            saveNotes();
-            render();
-            showToast('Nota guardada');
+            const newNote = {
+              id: 'n_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+              tag: tagEl.value,
+              text,
+              at,
+              done: false
+            };
+            selectedNoteTag = tagEl.value;
+            notes.unshift(newNote);
+            saveNotesCache();
+            showToast('Guardando nota en la nube...');
+            sendNoteAction({ action: 'add', ...newNote });
           });
         }
 
         document.querySelectorAll('[data-note-toggle]').forEach(cb => {
           cb.addEventListener('change', () => {
-            const idx = Number(cb.dataset.noteToggle);
-            if (notes[idx]) {
-              notes[idx].done = cb.checked;
-              saveNotes();
-              render();
+            const id = cb.dataset.noteToggle;
+            const item = notes.find(n => n.id === id);
+            if (item) {
+              item.done = cb.checked;
+              saveNotesCache();
+              sendNoteAction({ action: 'toggle', id, done: item.done });
             }
           });
         });
 
         document.querySelectorAll('[data-note-del]').forEach(btn => {
           btn.addEventListener('click', () => {
-            const idx = Number(btn.dataset.noteDel);
-            notes.splice(idx, 1);
-            saveNotes();
-            render();
-            showToast('Nota eliminada');
+            const id = btn.dataset.noteDel;
+            notes = notes.filter(n => n.id !== id);
+            saveNotesCache();
+            showToast('Nota borrada');
+            sendNoteAction({ action: 'delete', id });
           });
         });
 
@@ -677,9 +754,9 @@
         if (clearBtn) {
           clearBtn.addEventListener('click', () => {
             notes = notes.filter(n => !n.done);
-            saveNotes();
-            render();
-            showToast('Notas hechas limpiadas');
+            saveNotesCache();
+            showToast('Limpiando hechas...');
+            sendNoteAction({ action: 'clear_done' });
           });
         }
       }
@@ -711,7 +788,7 @@
           try { localStorage.setItem(CACHE_KEY, JSON.stringify(parsed)); } catch (_) {}
           render();
         } catch (err) {
-          lastError = 'No se pudo actualizar ahora (' + err.message + ').';
+          lastError = 'No se pudo actualizar el tablero (' + err.message + ').';
           if (currentRows.length) {
             lastSyncLabel = 'Mostrando última copia guardada';
             render();
@@ -723,6 +800,7 @@
       }
 
       loadFromSheet();
+      loadNotesFromCloud();
     })();
   </script>
 </body>
