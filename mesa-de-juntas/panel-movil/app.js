@@ -1,5 +1,5 @@
 (() => {
-  const STORAGE_KEY = 'vida_en_orden_junta_v2';
+  const STORAGE_KEY = 'vida_en_orden_junta_v3';
   const REVENUE_GOAL = 10000;
 
   const ROADMAP_STAGES = [
@@ -15,11 +15,11 @@
       ]
     },
     {
-      stage: 'Etapa 2 · Corregir y Pulir el PDF',
+      stage: 'Etapa 2 · Corregir y Pulir el PDF (Completada ✓)',
       tasks: [
-        { id: 'e2_anon', label: 'Retirar firma personal, iniciales y metadatos de autor del PDF', defaultDone: false },
-        { id: 'e2_esp', label: 'Hacer opcionales las referencias espirituales (8 puntos)', defaultDone: false },
-        { id: 'e2_fix', label: 'Corregir título Semana 4, actividades repetidas y numeración', defaultDone: false }
+        { id: 'e2_anon', label: 'Retirar firma personal, iniciales y metadatos de autor del PDF (@vida.orden)', defaultDone: true },
+        { id: 'e2_esp', label: 'Hacer opcionales las referencias espirituales (16 menciones + ícono neutro)', defaultDone: true },
+        { id: 'e2_fix', label: 'Reconstruir PDF editorial 87 págs. (Digital + Impresión), Día 20 nuevo y plantillas', defaultDone: true }
       ]
     },
     {

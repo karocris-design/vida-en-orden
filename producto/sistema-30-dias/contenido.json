@@ -1,0 +1,667 @@
+{
+  "meta": {
+    "title": "VIDA EN ORDEN — Sistema de 30 Días",
+    "subtitle": "Menos ruido. Más vida.",
+    "methodFull": "Método V.I.D.A. (Vida, Intención, Dirección, Acción)",
+    "tagline": "Organiza tu vida, calma tu mente y estabiliza tu dinero con sistemas simples.",
+    "author": "VIDA EN ORDEN",
+    "edition": "Edición 2026",
+    "instagram": "@vida.orden",
+    "linktree": "linktr.ee/VidaOrden",
+    "expenseRule": {
+      "name": "Regla 3–2–1",
+      "categories": [
+        { "code": "3", "short": "N", "label": "Necesario", "desc": "Sostiene tu vida básica, salud, hogar o compromisos fijos." },
+        { "code": "2", "short": "U", "label": "Útil", "desc": "No es indispensable, pero aporta valor real o te ahorra desgaste." },
+        { "code": "1", "short": "I", "label": "Impulso", "desc": "Antojo, compra rápida o gasto emocional no planeado." }
+      ]
+    }
+  },
+  "manifesto": {
+    "eyebrow": "Punto de partida",
+    "title": "Este no es un manual para convertirte en alguien más.",
+    "lead": "Es un punto de regreso.",
+    "paragraphs": [
+      "Aquí recuperas el mando que dejaste caer entre el ruido, las prisas y la vida sin pausa.",
+      "Este espacio es tuyo: para ordenar, para aclarar, para levantarte con la frente en alto y caminar con intención.",
+      "No vienes a impresionar a nadie; vienes a retomar tu rumbo."
+    ],
+    "closing": "Aquí empieza tu vida en orden."
+  },
+  "intro": {
+    "eyebrow": "Calma… dame 10 minutos",
+    "title": "Bienvenido al Método V.I.D.A.",
+    "lead": "Este no es un programa complicado ni una lista infinita de tareas. Es una guía clara para recuperar estabilidad en tu mente, en tu día y en tu dinero, usando pasos que cualquier persona puede sostener.",
+    "blocks": [
+      {
+        "title": "Qué es este sistema",
+        "body": "Un método práctico para bajar el ruido mental, ordenar tu día y construir un control financiero simple. Está diseñado para personas que se sienten saturadas, dispersas o cansadas del caos. Aquí no perseguimos «productividad extrema»; buscamos estabilidad real."
+      },
+      {
+        "title": "Qué puedes esperar",
+        "body": "Claridad, simplicidad y hábitos que sí se pueden mantener. Nada de cambios drásticos ni exigencias irreales. Cada herramienta aquí tiene un propósito: ayudarte a vivir ligero, con paz y dirección."
+      },
+      {
+        "title": "Cómo usarlo (solo 10 minutos al día)",
+        "body": "Cada día tendrás una microacción concreta enfocada en una de las bases del método, más un registro breve de gasto consciente. Lee, aplica y registra. Diez minutos son suficientes si eres constante. No corras ni te exijas de más: lo importante es avanzar."
+      },
+      {
+        "title": "Cómo se ve el «éxito» después de 30 días",
+        "bullets": [
+          "Tu mente está más clara y menos saturada.",
+          "Tu día tiene estructura, no improvisación eterna.",
+          "Tu dinero empieza a ordenarse sin estrés ni complicaciones.",
+          "Sientes más calma, más dirección y menos ruido."
+        ]
+      }
+    ],
+    "closing": "Este es tu punto de reinicio. Menos ruido. Más vida."
+  },
+  "vidaPillars": [
+    {
+      "letter": "V",
+      "name": "VIDA",
+      "accent": "mente",
+      "tagline": "Lo que eres. Lo que sientes. Lo que necesitas de verdad.",
+      "body": "Aquí se aclara tu mente, se baja el ruido y se reconoce tu realidad actual sin filtros ni culpa. Es el punto de partida para que tus decisiones tengan sentido.",
+      "questions": [
+        "¿Cómo estoy realmente hoy?",
+        "¿Qué me está drenando energía?",
+        "¿Qué sí quiero conservar en mi vida?"
+      ]
+    },
+    {
+      "letter": "I",
+      "name": "INTENCIÓN",
+      "accent": "energia",
+      "tagline": "Lo que deseas con propósito, no con impulso.",
+      "body": "Aquí defines metas simples, humanas y alcanzables. No se trata de hacer más cosas, sino de proteger lo que de verdad importa.",
+      "questions": [
+        "¿Qué quiero construir estas 4 semanas?",
+        "¿Qué microhábitos sí puedo sostener?",
+        "¿Qué sería una victoria realista para mí?"
+      ]
+    },
+    {
+      "letter": "D",
+      "name": "DIRECCIÓN",
+      "accent": "tiempo",
+      "tagline": "Tu plan. Tu estructura. Tu orden.",
+      "body": "Esto evita que el caos te coma. Aquí pones límites, acomodas prioridades —incluida tu TPU diaria— y diseñas rutas cortas para avanzar sin saturarte.",
+      "questions": [
+        "¿Cómo luce mi semana base?",
+        "¿Qué tareas son esenciales y cuáles sobran?",
+        "¿Cómo administro mi dinero sin drama?"
+      ]
+    },
+    {
+      "letter": "A",
+      "name": "ACCIÓN",
+      "accent": "habitos",
+      "tagline": "Lo pequeño que se hace diario y que cambia todo.",
+      "body": "Sin acción, no hay transformación. Aquí viven tus microacciones de 10 minutos, tus rituales simples y tu sistema de continuidad para no perder el rumbo.",
+      "questions": [
+        "¿Qué haré hoy que me acerque 1% a mi meta?",
+        "¿Qué gasto consciente voy a practicar?",
+        "¿Qué orden mínimo puedo mantener incluso en días pesados?"
+      ]
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "mente",
+      "name": "Mente",
+      "question": "¿Cómo está tu mente hoy?",
+      "scale": ["1 · Saturada", "2 · Inquieta", "3 · Neutra", "4 · Enfocada", "5 · Clara"]
+    },
+    {
+      "id": "tiempo",
+      "name": "Tiempo",
+      "question": "¿Qué tan ordenados están tus días?",
+      "scale": ["1 · En caos", "2 · Desordenado", "3 · Estable a ratos", "4 · Casi estructurado", "5 · Claro y estable"]
+    },
+    {
+      "id": "energia",
+      "name": "Energía",
+      "question": "¿Cómo está tu nivel de energía y descanso?",
+      "scale": ["1 · Muy baja", "2 · Baja", "3 · Normal", "4 · Buena", "5 · Alta y estable"]
+    },
+    {
+      "id": "dinero",
+      "name": "Dinero",
+      "question": "¿Cómo te sientes respecto al manejo de tu dinero?",
+      "scale": ["1 · Perdido / tenso", "2 · Inquieto", "3 · Más o menos", "4 · Estable", "5 · Claro y tranquilo"]
+    },
+    {
+      "id": "habitos",
+      "name": "Hábitos",
+      "question": "¿Qué tan constantes son tus hábitos esenciales hoy?",
+      "scale": ["1 · Ninguno constante", "2 · 1 hábito irregular", "3 · 1–2 hábitos", "4 · 3–4 hábitos", "5 · Muy consistente"]
+    }
+  ],
+  "tenRules": [
+    "Lo simple es lo que sostiene.",
+    "Una microacción hecha vale más que un día perfecto imaginado.",
+    "El desorden baja cuando sube la claridad.",
+    "La disciplina nace en pasos pequeños, no en impulsos grandes.",
+    "Si se repite, funciona. Si funciona, cambia.",
+    "El Día Base siempre te rescata.",
+    "El dinero necesita dirección, no castigo.",
+    "El cuerpo habla primero; la mente reacciona después.",
+    "La revisión semanal es no negociable.",
+    "Lo que no quiero cargar, lo suelto."
+  ],
+  "threeBases": [
+    {
+      "num": "01",
+      "accent": "mente",
+      "title": "Orden Mental y Energía — Bajar el Ruido",
+      "dimensionsLink": "Dimensiones que entrena: Mente + Energía · Semana 1",
+      "statement": "Tu mente solo necesita dos cosas para calmarse: pausa y claridad.",
+      "body": "Aquí no buscamos un «zen perfecto»; buscamos espacio real para pensar sin ahogarte y proteger tu descanso antes de exigirte más.",
+      "tools": [
+        "Descargas mentales rápidas de 3 minutos en papel.",
+        "Microtécnicas de respiración y descansos sin pantallas.",
+        "Límites claros y decisiones en pasos pequeños."
+      ],
+      "quote": "Cuando tu cabeza se ordena, tu vida deja de sentirse tan pesada."
+    },
+    {
+      "num": "02",
+      "accent": "tiempo",
+      "title": "Orden en el Día — Estructura Simple",
+      "dimensionsLink": "Dimensiones que entrena: Tiempo + Entorno · Semana 2",
+      "statement": "No necesitas una agenda llena; necesitas un esqueleto diario que te sostenga.",
+      "body": "La productividad realista consiste en pocos pasos claros: una TPU (Tarea Prioritaria Única) al día, rutinas cortas y espacios limpios que reducen fricción.",
+      "tools": [
+        "Tu TPU diaria (la única acción que define tu día).",
+        "Micro-rutina AM de 3 pasos y regla 2×2 de orden físico.",
+        "Cierres diarios y revisión semanal sin complicaciones."
+      ],
+      "quote": "Un día ordenado crea semanas estables."
+    },
+    {
+      "num": "03",
+      "accent": "dinero",
+      "title": "Orden del Dinero — Control Básico",
+      "dimensionsLink": "Dimensiones que entrena: Dinero (y se integra con Hábitos en Semana 4) · Semana 3",
+      "statement": "El dinero no se arregla pensando; se arregla registrando.",
+      "body": "No necesitas ser experto ni llevar hojas de cálculo eternas; solo mirar tus números con honestidad y clasificarlos con la Regla 3–2–1 (Necesario, Útil, Impulso).",
+      "tools": [
+        "Registro breve de gasto consciente (30 segundos al día).",
+        "Regla 3–2–1: Necesario (3) · Útil (2) · Impulso (1).",
+        "Mini-colchón semanal, Día Cero sin gastos y pausa de 24 horas."
+      ],
+      "quote": "Una vida en orden empieza por un dinero en orden, aunque sea poquito."
+    }
+  ],
+  "methodSteps": [
+    {
+      "num": "01",
+      "title": "Estado Mental",
+      "desc": "Una pausa de 1 minuto para bajar el ruido, notar cómo llegas (escala 1–5) y entrar en modo presente."
+    },
+    {
+      "num": "02",
+      "title": "Intención del Día",
+      "desc": "Una frase simple que define la dirección de hoy. Sin esto, la jornada se dispersa entre urgencias."
+    },
+    {
+      "num": "03",
+      "title": "Microacción",
+      "desc": "El ejercicio concreto del día (3 a 10 minutos). Pequeño, claro y enfocado en mente, tiempo, energía o dinero."
+    },
+    {
+      "num": "04",
+      "title": "Gasto Consciente",
+      "desc": "Registrar un solo movimiento económico y clasificarlo (Necesario / Útil / Impulso) te devuelve control real. No es contabilidad; es atención."
+    },
+    {
+      "num": "05",
+      "title": "Reflexión Breve",
+      "desc": "Tres o cuatro líneas para cerrar el día y ver tu avance. Aquí es donde la mente ordena y asienta el cambio."
+    }
+  ],
+  "preparation": {
+    "need": [
+      "Este cuaderno impreso o en tu tableta para escribir sin prisas.",
+      "Un espacio pequeño, pero tuyo: una mesa, rincón o silla.",
+      "10 a 15 minutos al día sin interrupciones.",
+      "Un bolígrafo o lápiz que te guste (los detalles importan).",
+      "Actitud humilde: vienes a construir claridad, no a presumir fuerza.",
+      "Compromiso real: el sistema funciona cuando tú lo practicas."
+    ],
+    "avoid": [
+      "Empezar saturado: respira 1 minuto antes y baja revoluciones.",
+      "Exigirte perfección desde el Día 1.",
+      "Intentar cambiar veinte hábitos a la vez.",
+      "Abandonar el proceso solo porque un día salió caótico.",
+      "Revisar redes sociales antes de escribir tu microacción.",
+      "Leerlo como teoría sin aplicarlo: lo simple solo transforma cuando se hace."
+    ]
+  },
+  "orderedDay": [
+    "Te despiertas y defines tu intención y tu prioridad principal del día.",
+    "Haces tu microacción sin negociar ni discutir contigo mismo.",
+    "Tomas decisiones financieras simples: Necesario, Útil o Impulso.",
+    "Mantienes un orden mínimo en tu espacio cercano.",
+    "Dejas espacio para respirar, hacer una pausa silenciosa, orar o simplemente aquietarte.",
+    "Cierras el día con honestidad: ¿avancé 1% hoy? Sí o no."
+  ],
+  "weeklyChecklist": [
+    "Cumplí mi microacción la mayoría de los días.",
+    "Me mantuve fiel a mi intención diaria.",
+    "Practiqué al menos un momento de calma (respirar, caminar, pausa silenciosa u oración).",
+    "Evité un impulso o distracción que normalmente me descarrila.",
+    "Organicé o despejé un pequeño espacio de mi entorno.",
+    "Tomé al menos una decisión consciente con mi dinero.",
+    "Reduje un hábito o ruido que me drenaba energía.",
+    "Sostuve mis hábitos esenciales (aunque fuera en versión mínima).",
+    "Registré mi día en el cuaderno (estado mental, gasto o reflexión).",
+    "Terminé la semana con más claridad que como la empecé."
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "title": "Orden Mental y Calma",
+      "daysRange": "Días 1 al 7",
+      "accent": "mente",
+      "motto": "Comienza por quitar lo que estorba.",
+      "focus": "Mente y Energía · Bajar el ruido antes de ordenar la agenda.",
+      "expectedOutcome": [
+        "Menos ruido mental inmediato.",
+        "Mayor estabilidad emocional durante el día.",
+        "Identificación clara de tus principales detonantes de estrés.",
+        "Primera mini rutina diaria instalada (semilla de tu Triple Ancla).",
+        "Primeras señales reales de control interno recuperado."
+      ],
+      "days": [
+        {
+          "day": 1,
+          "title": "Vaciar la cabeza",
+          "idea": "No puedes ordenar lo que no ves. Mientras tus pendientes sigan girando en tu mente, consumen energía cada hora.",
+          "microaction": "Haz una «descarga mental» de 3 minutos. Escribe en papel todo lo que esté ocupando espacio en tu cabeza, sin ordenar ni filtrar.",
+          "expense": "Registra 1 gasto de hoy en tu cuaderno (concepto y monto), sin juzgarlo.",
+          "quote": "Lo que escribo dejo de cargarlo."
+        },
+        {
+          "day": 2,
+          "title": "Nombrar tus pendientes",
+          "idea": "La ansiedad baja cuando los pendientes tienen nombre y lugar, no necesariamente cuando desaparecen.",
+          "microaction": "De tu descarga mental de ayer, subraya solo 5 pendientes que realmente importan esta semana. Estaciona el resto sin culpa.",
+          "expense": "Registra 1 gasto de hoy y observa si fue planeado o improvisado.",
+          "quote": "No todo es urgente. Solo parece."
+        },
+        {
+          "day": 3,
+          "title": "Poner un límite",
+          "idea": "El cansancio suele venir más de decir «sí» a todo que del trabajo mismo.",
+          "microaction": "Elige una cosa a la que hoy vas a decir NO (o posponer conscientemente). Escríbela y respétala.",
+          "expense": "Registra 1 gasto de hoy y nota si te costó trabajo o te dio paz.",
+          "quote": "Un no a tiempo es un acto de orden."
+        },
+        {
+          "day": 4,
+          "title": "Tu primera mini rutina (semilla de la Triple Ancla)",
+          "idea": "No necesitas una rutina larga ni perfecta, solo una versión mínima que puedas cumplir incluso en días pesados.",
+          "microaction": "Define tu primera mini rutina de 3 pasos (que en Semana 4 evolucionará en tu Triple Ancla): 1 acción para tu mente, 1 para tu día y 1 para tu dinero. Ejemplo: respirar 1 min, revisar prioridades 2 min, anotar 1 gasto en 30 seg.",
+          "expense": "Registra 1 gasto de hoy en menos de 30 segundos para entrenar el hábito.",
+          "quote": "Lo pequeño, sostenido, sostiene todo."
+        },
+        {
+          "day": 5,
+          "title": "Limpieza de distractores",
+          "idea": "Tu mente se satura más por interrupciones y notificaciones constantes que por problemas reales.",
+          "microaction": "Elimina o silencia hoy 3 notificaciones del teléfono que no necesitas para vivir ni trabajar.",
+          "expense": "Registra 1 gasto de hoy y revisa si alguna app o anuncio te empujó a gastar.",
+          "quote": "Menos ruido, más fuerza."
+        },
+        {
+          "day": 6,
+          "title": "Descanso real",
+          "idea": "Descansar no es dejar de ser productivo; es recuperar claridad. Mirar pantallas cansa la mente aunque el cuerpo esté sentado.",
+          "microaction": "Regálate 10 minutos de descanso verdadero: sin celular, sin televisión y sin hacer dos cosas a la vez.",
+          "expense": "Registra 1 gasto de hoy y pregúntate: ¿estaba cansado cuando lo hice?",
+          "quote": "La mente rinde más cuando la cuidas."
+        },
+        {
+          "day": 7,
+          "title": "Mirada clara",
+          "idea": "Tu primera semana tuvo lógica; ahora tu avance necesita nombre para volverse aprendizaje real.",
+          "microaction": "Escribe 3 cosas que descubriste de ti esta semana sobre tus rutinas, límites, distracciones o energía.",
+          "expense": "Revisa los 7 gastos que anotaste esta semana: no los juzgues, solo míralos juntos.",
+          "quote": "La claridad se construye un día a la vez."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Claridad y Estructura Diaria",
+      "daysRange": "Días 8 al 14",
+      "accent": "tiempo",
+      "motto": "Cuando ordeno fuera, se acomoda dentro.",
+      "focus": "Tiempo y Entorno · Crear una estructura simple sin rigidez.",
+      "expectedOutcome": [
+        "Menos saturación visual en tu espacio diario.",
+        "Claridad sobre tus prioridades del mes y tu TPU diaria.",
+        "Micro-rutina AM estable y sencilla.",
+        "Primer mapa básico de tus ingresos y egresos listo para Semana 3.",
+        "Sensación creciente de mando sobre tu día."
+      ],
+      "days": [
+        {
+          "day": 8,
+          "title": "Tu espacio define tu mente",
+          "idea": "El desorden visual es ruido mental silencioso. Aunque no lo notes, cada cosa fuera de lugar te resta enfoque; despejar un área pequeña crea alivio inmediato.",
+          "microaction": "Elige un espacio pequeño (un cajón, tu buró o tu escritorio) y déjalo solo con lo esencial.",
+          "expense": "Identifica 1 compra impulsiva de los últimos días y reconoce qué emoción la activó.",
+          "quote": "Lo simple me da oxígeno."
+        },
+        {
+          "day": 9,
+          "title": "La regla 2×2 del avance real",
+          "idea": "El cambio que dura no nace de maratones de limpieza, sino de pequeñas repeticiones. Dos cosas que sueltas y dos que ordenas reprograman tu mente para actuar sin drama.",
+          "microaction": "Aplica la Regla 2×2 hoy: tira o dona 2 objetos y acomoda 2 objetos. Nada más.",
+          "expense": "No compres nada «para organizar». Primero reduce lo que ya tienes.",
+          "quote": "Pequeño hoy, gigante mañana."
+        },
+        {
+          "day": 10,
+          "title": "Tus 5 prioridades y tu TPU diaria",
+          "idea": "La saturación aparece cuando tratas todo como urgente. Definir 5 prioridades del mes —y elegir cada mañana 1 TPU (Tarea Prioritaria Única)— ordena tu día sin agendas eternas.",
+          "microaction": "Escribe tus 5 prioridades del mes y subraya cuál será tu TPU (la única acción que define tu día) mañana.",
+          "expense": "Define 1 gasto que vas a proteger este mes porque sostiene una de tus 5 prioridades.",
+          "quote": "Cuando sé qué importa, decido mejor."
+        },
+        {
+          "day": 11,
+          "title": "Tu micro-rutina AM de 3 pasos",
+          "idea": "La estabilidad nace de pequeños rituales que anclan el inicio del día. No necesitas una hora libre; necesitas constancia en los primeros 10 minutos.",
+          "microaction": "Diseña tu micro-rutina AM de 3 pasos antes de abrir redes (ejemplo: vaso de agua → 1 minuto de pausa silenciosa u oración → revisar tu TPU del día).",
+          "expense": "Observa si las mañanas con prisa te están haciendo gastar de más (café rápido, envíos, transporte innecesario).",
+          "quote": "La mañana ordena mi día."
+        },
+        {
+          "day": 12,
+          "title": "Tu mapa simple del dinero (puente a Semana 3)",
+          "idea": "Saber cuánto entra y cuánto sale te baja la ansiedad más rápido que cualquier técnica emocional. El caos financiero suele nacer de evitar mirar los números.",
+          "microaction": "Responde en 5 minutos (sin buscar perfección): 1) ¿Cuánto entra al mes? 2) ¿Cuánto sale fijo? 3) ¿Qué fuga pequeña puedes cerrar desde hoy?",
+          "expense": "Cancela o frena 1 gasto hormiga o suscripción en automático que ya no usas.",
+          "quote": "Veo mis números. Tomo el mando."
+        },
+        {
+          "day": 13,
+          "title": "La ley del «No complico»",
+          "idea": "Gran parte del estrés viene de volver complejo lo simple: agregar pasos innecesarios, buscar la app perfecta o exigir resultados impecables.",
+          "microaction": "Elige un proceso que hoy estás complicando (trabajo, casa o pendientes) y redúcelo a su versión más simple.",
+          "expense": "Evita compras que prometen «hacerte más productivo». La simpleza ordena más que cualquier objeto nuevo.",
+          "quote": "Lo simple siempre funciona."
+        },
+        {
+          "day": 14,
+          "title": "Revisión honesta y limpia",
+          "idea": "La revisión semanal convierte acciones sueltas en progreso real. Sin pausa para observar, repites errores; con claridad, ajustas y avanzas.",
+          "microaction": "Reflexión de 5 minutos: 1) ¿Qué gané esta semana? 2) ¿Qué me drenó? 3) ¿Qué voy a ajustar al entrar a la Semana 3?",
+          "expense": "Anota si hubo compras emocionales esta semana. Sé honesto contigo sin castigarte.",
+          "quote": "Lo que reviso, mejora."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Orden del Dinero",
+      "daysRange": "Días 15 al 21",
+      "accent": "dinero",
+      "motto": "El dinero no se arregla pensando; se arregla registrando.",
+      "focus": "Dinero · Claridad práctica, sin culpa y sin hojas de cálculo eternas.",
+      "expectedOutcome": [
+        "Visibilidad real de en qué se va tu dinero cada semana.",
+        "Fugas pequeñas identificadas y al menos una cerrada.",
+        "Dominio práctico de la Regla 3–2–1 (Necesario / Útil / Impulso).",
+        "Primer mini-colchón semanal y experiencia real de un Día Cero.",
+        "Tablas semanales 1 y 2 completadas con claridad en blanco y negro."
+      ],
+      "days": [
+        {
+          "day": 15,
+          "title": "El control del descontrol",
+          "idea": "Antes de ordenar tu dinero necesitas ver por dónde se está yendo. La mayoría cree que «no gasta tanto», pero vive a ciegas ante los montos pequeños de cada día.",
+          "microaction": "Anota absolutamente todo lo que gastes hoy, sin juicio. No culpas, no corriges, no justificas: solo miras con honestidad.",
+          "expense": "Recuerda: lo que no se registra se escapa… pero tu cuenta sí lo siente.",
+          "quote": "La claridad empieza con un apunte."
+        },
+        {
+          "day": 16,
+          "title": "El goteo del dinero",
+          "idea": "Casi nunca es un solo gasto grande el que desbalancea tu mes: es el goteo diario. Montos que parecen insignificantes hoy, multiplicados por 30 días, te quitan aire.",
+          "microaction": "Identifica 3 fugas cotidianas de dinero (ej. café extra, envíos rápidos, antojos de paso). No hace falta precisión quirúrgica: solo ponerles nombre.",
+          "expense": "Elimina solo 1 de esas fugas esta semana, no las tres. Si intentas cortar todo de golpe, no duras 48 horas.",
+          "quote": "Quita una fuga y ganas aire."
+        },
+        {
+          "day": 17,
+          "title": "Clasificar con la Regla 3–2–1",
+          "idea": "No todos los gastos pesan igual; tu mente necesita categorías claras para dejar de sentir que todo es «urgente» o «merecido».",
+          "microaction": "Clasifica tus gastos de ayer con la Regla 3–2–1: 3 = Necesario · 2 = Útil · 1 = Impulso. No es para juzgarte, es para entender tus patrones.",
+          "expense": "Reduce hoy un gasto «1» (Impulso). El problema no es darte un gusto planeado, sino acumular impulsos en piloto automático.",
+          "quote": "Gastas mejor cuando sabes qué lugar ocupa cada cosa."
+        },
+        {
+          "day": 18,
+          "title": "Tu mini-colchón semanal",
+          "idea": "Un sistema simple siempre gana. No necesitas diez sobres ni cuatro apps; solo un pequeño colchón semanal que te dé margen emocional ante imprevistos.",
+          "microaction": "Define tu mini-colchón semanal según tu realidad (ej. $50 a $200 MXN o equivalente). No es ahorro a largo plazo: es tu amortiguador de calma.",
+          "expense": "Aparta ese monto y trátalo como intocable hasta el domingo. Entrena disciplina sin dolor.",
+          "quote": "Un poco guardado cada semana cambia todo."
+        },
+        {
+          "day": 19,
+          "title": "Día Cero: reseteo sin gastos",
+          "idea": "Un día sin gastos resetea el piloto automático del consumo y te demuestra que tienes más mando del que crees.",
+          "microaction": "Elige hoy como tu Día Cero: no compres nada que no sea estrictamente urgente o médico. Planea con lo que ya tienes en casa.",
+          "expense": "Anota al cierre del día qué emoción apareció al no gastar (ansiedad, alivio, orgullo). Esa emoción revela mucho.",
+          "quote": "Hoy mando yo, no mis impulsos."
+        },
+        {
+          "day": 20,
+          "title": "La regla de pausa de 24 horas",
+          "idea": "Entre el deseo de comprar y el momento de pagar existe un espacio breve. Cuando pones una pausa de 24 horas antes de cualquier gasto no necesario, la mayoría de los impulsos se disuelve sola.",
+          "microaction": "Abre una nota llamada «Lista de espera 24 h». Si hoy te dan ganas de comprar algo no planeado, anótalo ahí y espera hasta mañana antes de decidir.",
+          "expense": "Al final del día, suma cuánto dinero conservaste simplemente por pausar antes de pagar.",
+          "quote": "Pausar antes de pagar es recuperar el mando."
+        },
+        {
+          "day": 21,
+          "title": "El dinero como músculo semanal",
+          "idea": "La estabilidad financiera responde mejor a la constancia breve que a sacrificios extremos de un mes. Es un músculo que se entrena semana a semana.",
+          "microaction": "Llena tus 2 tablas semanales en la Parte IV (Tabla 1: Registro Simple de la Semana, pág. 76 · Tabla 2: Seguimiento de Mini-Metas, pág. 77).",
+          "expense": "Define 1 objetivo financiero pequeño y realista para la Semana 4.",
+          "quote": "El dinero se ordena cuando tú te ordenas."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Integración y Hábitos",
+      "daysRange": "Días 22 al 30",
+      "accent": "habitos",
+      "motto": "Lo simple me mantiene.",
+      "focus": "Hábitos e Integración (9 días de consolidación) · Unir mente, día y dinero en un sistema tuyo.",
+      "expectedOutcome": [
+        "Un Día Base claro que te da estabilidad incluso en días difíciles.",
+        "Tu Triple Ancla definida (3 microhábitos de menos de 5 minutos).",
+        "Un microorden en casa que reduce ruido mental al instante.",
+        "Un sistema financiero mínimo que evita estrés y compras por impulso.",
+        "Hábitos sostenibles y un plan concreto para tus próximos 30 días."
+      ],
+      "days": [
+        {
+          "day": 22,
+          "title": "Tu Triple Ancla: el esqueleto del sistema",
+          "idea": "Un sistema sencillo funciona como un esqueleto interno: no siempre se ve, pero sostiene todo. Cuando tu día se apoya en 3 hábitos pequeños bien elegidos, el caos pierde fuerza.",
+          "microaction": "Elige tus 3 hábitos esenciales —tu Triple Ancla— (puedes apoyarte en la guía de las págs. 82–83). Ejemplo: 1 minuto de pausa silenciosa u oración, vaso grande de agua y revisar tu TPU en 30 seg.",
+          "expense": "Haz o planea un gasto consciente que proteja tu salud o bienestar básico.",
+          "quote": "Lo esencial primero."
+        },
+        {
+          "day": 23,
+          "title": "Tu Día Base: el mapa de estabilidad",
+          "idea": "Un Día Base es tu estructura mínima cuando todo se sale de control. Te salva porque no tienes que improvisar ni gastar fuerza de voluntad: simplemente vuelves a tu base.",
+          "microaction": "Diseña tu Día Base en la plantilla de la pág. 85 con sus 5 piezas: 3 tareas indispensables (incluida tu TPU), 1 cuidado personal, 1 pausa de centro (silencio, lectura u oración opcional), 1 límite de gastos y 1 microacción V.I.D.A.",
+          "expense": "Cero compras improvisadas hoy. Tú decides, no el antojo.",
+          "quote": "Cuando todo falle, regreso a mi base."
+        },
+        {
+          "day": 24,
+          "title": "Rutina 10/10",
+          "idea": "La energía rara vez vuelve con grandes reformas; regresa con micro-rescates. La Rutina 10/10 limpia tu entorno y despierta tu cuerpo cuando el día se vuelve pesado.",
+          "microaction": "Haz hoy la Rutina 10/10: 10 minutos para ordenar un espacio + 10 minutos de movimiento suave (caminar, estirar, soltar tensión).",
+          "expense": "Compra hoy solo lo que ya estaba programado. La disciplina también es descanso.",
+          "quote": "El orden mínimo sostiene la mente."
+        },
+        {
+          "day": 25,
+          "title": "Tu casa, tu calma",
+          "idea": "Tu espacio cercano refleja tu ritmo interno. Cuando dejas impecable aunque sea un pequeño rincón, le envías a tu cerebro una señal inmediata de calma y control.",
+          "microaction": "Haz un microorden consciente: elige un rincón visible (mesa, entrada o escritorio) y déjalo despejado y agradable a la vista.",
+          "expense": "Solo si realmente hace falta, invierte con límite claro en un detalle práctico que mejore ese espacio; si no, celebra ordenar sin gastar.",
+          "quote": "Lo pequeño cambia todo."
+        },
+        {
+          "day": 26,
+          "title": "Saber cuánto antes de gastar",
+          "idea": "El dinero deja de sentirse como tormenta cuando le pones reglas simples. La diferencia entre estrés y calma es saber cuánto vas a gastar antes de sacar la cartera.",
+          "microaction": "Ajusta tu piloto simple financiero: revisa tus 3 categorías (Necesario / Útil / Impulso) y fija tu límite semanal claro en la plantilla de la pág. 80.",
+          "expense": "Practica hoy un segundo Día Cero (sin gastos no esenciales).",
+          "quote": "El dinero fluye mejor cuando tú mandas."
+        },
+        {
+          "day": 27,
+          "title": "De la práctica a la realidad",
+          "idea": "Integrar significa pasar de «hacer un ejercicio» a vivir con menos fricción. No se trata de exigirte más, sino de afinar lo que ya comprobaste que sí te sirve.",
+          "microaction": "Revisa tus 3 bases (Mente/Energía, Tiempo/Día y Dinero) y haz 1 ajuste pequeño en cada una para que se adapten mejor a tu semana real.",
+          "expense": "Cambia un gasto emocional por una pausa sana gratuita: caminar, leer, respirar profundo o un momento de silencio.",
+          "quote": "Sigo afinando."
+        },
+        {
+          "day": 28,
+          "title": "Tu cuerpo también ordena",
+          "idea": "Tu cuerpo es tu primer sistema de organización. Cuando está tenso y agotado, todo se complica; cuando sueltas tensión y respiras lento, la lucidez regresa.",
+          "microaction": "Regálate hoy 5 ciclos de respiración lenta (inhala 4, retén 2, exhala 6) + 5 minutos de estiramientos suaves.",
+          "expense": "Solo si hace falta, destina un monto pequeño y planeado a algo que cuide tu bienestar físico.",
+          "quote": "Mi cuerpo es un mensaje a mi futuro."
+        },
+        {
+          "day": 29,
+          "title": "Revisión final y cierre limpio",
+          "idea": "No puedes entrar a una etapa nueva cargando lo que ya no sirve. Cerrar un ciclo con honestidad te muestra qué se volvió hábito, qué se atoró y qué decides soltar.",
+          "microaction": "Haz tu Revisión Final en 5 minutos: 1) ¿Qué se volvió hábito natural? 2) ¿Qué se atoró? 3) ¿Qué ya no voy a seguir cargando?",
+          "expense": "Ordena tus gastos de esta última semana y mira tu avance desde el Día 1.",
+          "quote": "Cierro limpio."
+        },
+        {
+          "day": 30,
+          "title": "Proyectar tus próximos 30 días",
+          "idea": "Integración real significa proyectar con calma. Ya tienes claridad mental, estructura base y control financiero simple; ahora toca usarlos como plataforma.",
+          "microaction": "Diseña tu plan para los próximos 30 días: 3 metas realistas, tu Triple Ancla (3 hábitos) y 3 acciones clave por semana.",
+          "expense": "Define un límite mensual simple que puedas sostener con tranquilidad y sin culpa.",
+          "quote": "Construyo lo que viene."
+        }
+      ]
+    }
+  ],
+  "finalAchievements": [
+    "Mi mente está más clara y con menos ruido.",
+    "Tengo un Día Base y una Triple Ancla definidos.",
+    "Mis gastos son mucho más conscientes y menos impulsivos.",
+    "Siento mayor control interno ante los imprevistos.",
+    "Ordené microespacios reales en mi entorno.",
+    "Tengo hábitos pequeños que sí puedo sostener.",
+    "Reconozco mejor qué emociones activan mi estrés o mis gastos.",
+    "Reduje distracciones y saturación digital.",
+    "Recuperé tiempo y enfoque para lo que sí importa.",
+    "Siento más dirección y calma hacia los próximos 30 días."
+  ],
+  "closingLetter": {
+    "eyebrow": "Cierre del ciclo",
+    "title": "Reinvención en 30 días",
+    "paragraphs": [
+      "Llegaste al Día 30, y lo que terminó no fue el proceso… sino la versión de ti que vivía saturada y sin aire. Este mes no buscó cambiar tu vida entera de golpe, sino devolverte tu claridad, tu energía honesta y tu capacidad de elegir lo que te construye.",
+      "Cada microacción dijo: «mi vida importa, mi paz importa, mi futuro importa». No solo ordenaste tu agenda: ordenaste tu interior. Le pusiste límites al caos y comprobaste que tienes fuerza, disciplina y confianza.",
+      "Hoy tienes claridad donde había ruido, ritmo donde había prisa y dirección donde había preocupación. Y, sobre todo, recuperaste tu palabra contigo mismo —y ahí empiezan los verdaderos cambios.",
+      "No busques perfección en los próximos 30 días; busca volver a tu base cada vez que tropieces. Ya sabes ordenarte, calmarte y avanzar con solidez."
+    ],
+    "closingLines": [
+      "Sigue firme, simple y profundo.",
+      "Gracias por darte estos 30 días. Gracias por volver a ti.",
+      "VIDA EN ORDEN no termina aquí: empieza cada mañana que eliges vivir despierto."
+    ]
+  },
+  "kitIntro": {
+    "eyebrow": "Parte IV · Anexos y Plantillas",
+    "title": "Kit de Herramientas y Plantillas",
+    "lead": "Estas hojas no están hechas para «llenarse por obligación», sino para sostener tu vida sin ruido ni complicaciones. Úsalas en tu tableta digital o imprímelas y pégalas donde puedas verlas.",
+    "tpuBox": {
+      "title": "¿Qué es la TPU (Tarea Prioritaria Única)?",
+      "body": "La TPU es la única acción que define tu día. No es la más larga ni la más pesada: es la que tiene mayor impacto real. Cumplir tu TPU diaria evita que vivas apagando incendios y te da sensación inmediata de avance. Si logras tu TPU, ya ganaste el día."
+    },
+    "items": [
+      { "label": "Tablas 1 y 2 · Finanzas Semanales", "desc": "Registro simple de gastos, fugas, Regla 3–2–1 y mini-metas (págs. 76–77)." },
+      { "label": "Plantilla 1 · Mi Rutina Base", "desc": "Tu guía diaria de 1 hoja para días normales con TPU (pág. 78)." },
+      { "label": "Plantilla 2 · Mi Semana Estable", "desc": "Agenda semanal sin saturación para no reinventar cada lunes (pág. 79)." },
+      { "label": "Plantilla 3 · Mi Dinero en Orden", "desc": "Control semanal en 2 minutos con Necesario / Útil / Impulso (pág. 80)." },
+      { "label": "Herramienta 4 · Hoja SOS", "desc": "Protocolo de 6 pasos para días difíciles o saturación aguda (pág. 81)." },
+      { "label": "Herramienta 5 · Mi Triple Ancla", "desc": "Guía, ejemplos y plantilla para tus 3 hábitos no negociables (págs. 82–83)." },
+      { "label": "Herramienta 6 · Mi Día Base", "desc": "Modo estabilidad: qué incluye y tu hoja rellenable lista para usar (págs. 84–85)." }
+    ]
+  },
+  "tripleAnclaExamples": [
+    {
+      "title": "1 minuto de silencio, respiración profunda o práctica espiritual opcional",
+      "desc": "Regulación instantánea para bajar revoluciones y conectar tu mente con algo más sereno que las urgencias."
+    },
+    {
+      "title": "Un vaso grande de agua al despertar",
+      "desc": "Enciendes el cuerpo antes que el ruido y las pantallas."
+    },
+    {
+      "title": "Revisar tu TPU del día (30 segundos)",
+      "desc": "Pones dirección consciente antes de que el día te imponga la suya."
+    },
+    {
+      "title": "Microorden rápido (5 a 10 objetos a su lugar)",
+      "desc": "Tu entorno deja de competir visualmente contra tu calma mental."
+    },
+    {
+      "title": "Anotar 1 gasto del día antes de dormir",
+      "desc": "Mantienes claridad financiera con menos de 30 segundos de esfuerzo."
+    }
+  ],
+  "diaBaseElements": [
+    {
+      "icon": "check",
+      "title": "3 tareas indispensables (incluida tu TPU)",
+      "desc": "No más. Las tres cosas que, si las haces, tu día no se cae: tu prioridad principal, una responsabilidad mínima y algo que sostiene tu rumbo."
+    },
+    {
+      "icon": "heart",
+      "title": "1 cuidado personal",
+      "desc": "Una sola acción que te recuerde que tu cuerpo es parte del sistema: agua suficiente, estiramientos, caminar 5 minutos o dormir a tiempo."
+    },
+    {
+      "icon": "compass",
+      "title": "1 pausa de centro (práctica personal opcional)",
+      "desc": "Breve, clara y profunda: un minuto de silencio, gratitud, lectura breve o práctica espiritual/oración si forma parte de tu vida."
+    },
+    {
+      "icon": "wallet",
+      "title": "1 límite de gastos",
+      "desc": "Un número simple que te mantenga sereno: sin improvisaciones ni impulsos, incluso cuando estás cansado."
+    },
+    {
+      "icon": "play",
+      "title": "1 microacción del Método V.I.D.A.",
+      "desc": "Vida, Intención, Dirección o Acción. Solo una: lo micro que sostiene lo macro."
+    }
+  ]
+}

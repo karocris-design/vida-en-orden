@@ -2,6 +2,7 @@
 
 - **Nombre:** VIDA EN ORDEN
 - **Eslogan:** *Menos ruido. Más vida.*
+- **Instagram oficial:** `@vida.orden` · **Enlace bio:** `linktr.ee/VidaOrden`
 - **Tipo de marca:** Anónima (el protagonismo es del sistema y del usuario, nunca de una figura personal).
 - **Público objetivo:** Adultos hispanohablantes (México y Latinoamérica/España) que sienten saturación mental, falta de estructura diaria, cansancio o desorden financiero y buscan un método concreto y alcanzable.
 

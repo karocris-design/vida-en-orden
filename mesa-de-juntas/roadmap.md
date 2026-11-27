@@ -8,12 +8,12 @@
 - [x] Conectar GitHub y publicar en vivo (GitHub Pages gratis + guardado automático en Google Sheets)
 - [x] Probar el Test en familia, ajustar legibilidad, cierre y diagnóstico completo
 
-## Etapa 2 — Corregir y Pulir el PDF (89 páginas)
+## Etapa 2 — Corregir y Pulir el PDF (87 páginas · Digital + Impresión) *(COMPLETADA ✓)*
 - [x] Ejecutar auditoría completa (ver `producto/pdf-fuente/auditoria-editorial.md`)
-- [ ] Retirar firma personal, iniciales y metadatos de autor en el PDF
-- [ ] Hacer opcionales las referencias espirituales (oración/versículo)
-- [ ] Corregir títulos duplicados (ej. `SEMANA 4 — ORDEN DEL DINERO`), actividades repetidas y numeración
-- [ ] Rediseñar o exportar PDF final con identidad minimalista cálida unificada
+- [x] Retirar firma personal, iniciales y metadatos de autor en el PDF
+- [x] Hacer opcionales las referencias espirituales (16 menciones + ícono neutro)
+- [x] Corregir títulos duplicados (Día 20 nuevo, Días 28–29, Semana 4), plantillas rotas y numeración (87 págs. + Índice)
+- [x] Rediseñar y exportar PDF final en 2 ediciones (Digital + Impresión) con identidad minimalista cálida unificada (`producto/sistema-30-dias/`)
 
 ## Etapa 3 — Webapp Completa de 30 Días
 - [ ] Incorporar las 4 semanas / 30 días interactivos (10 min/día)

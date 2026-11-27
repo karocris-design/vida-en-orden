@@ -1,6 +1,7 @@
-# Proteger anonimato y evitar subir archivos pesados / fuentes con metadatos personales a repos públicos
+# Proteger anonimato y evitar subir archivos pesados / fuentes con metadatos personales o PDFs de venta a repos públicos
 producto/pdf-fuente/*.pdf
 producto/pdf-fuente/texto-extraido.txt
+producto/sistema-30-dias/output/*.pdf
 
 # Entorno macOS / Node
 .DS_Store
