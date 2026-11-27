@@ -305,7 +305,7 @@
       reflection: '',
       feedbackSent: false,
       interest: {
-        tier: 'PDF + Webapp $199',
+        tier: 'Completa $199',
         contact: '',
         submitted: false
       },

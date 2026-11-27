@@ -1,5 +1,5 @@
 (() => {
-  const STORAGE_KEY = 'vida_en_orden_junta_v3';
+  const STORAGE_KEY = 'vida_en_orden_junta_v4';
   const REVENUE_GOAL = 10000;
 
   const ROADMAP_STAGES = [
@@ -23,11 +23,11 @@
       ]
     },
     {
-      stage: 'Etapa 3 · Webapp Completa de 30 Días',
+      stage: 'Etapa 3 · Webapp Completa de 30 Días (Completada ✓)',
       tasks: [
-        { id: 'e3_days', label: 'Integrar los 30 días interactivos (10 min/día)', defaultDone: false },
-        { id: 'e3_tools', label: 'Herramientas interactivas: Triple Ancla, Día Base, Hoja SOS y gastos', defaultDone: false },
-        { id: 'e3_key', label: 'Desbloqueo por clave local + respaldo exportable sin cuentas', defaultDone: false }
+        { id: 'e3_days', label: 'Integrar los 30 días interactivos (10 min/día)', defaultDone: true },
+        { id: 'e3_tools', label: 'Herramientas interactivas: Triple Ancla, Día Base, Hoja SOS y Dinero 3-2-1', defaultDone: true },
+        { id: 'e3_key', label: 'Desbloqueo por clave local (Esencial $99 / Completa $199) + respaldo JSON', defaultDone: true }
       ]
     },
     {

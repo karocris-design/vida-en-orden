@@ -15,10 +15,10 @@
 - [x] Corregir títulos duplicados (Día 20 nuevo, Días 28–29, Semana 4), plantillas rotas y numeración (87 págs. + Índice)
 - [x] Rediseñar y exportar PDF final en 2 ediciones (Digital + Impresión) con identidad minimalista cálida unificada (`producto/sistema-30-dias/`)
 
-## Etapa 3 — Webapp Completa de 30 Días
-- [ ] Incorporar las 4 semanas / 30 días interactivos (10 min/día)
-- [ ] Módulos interactivos: *Triple Ancla*, *Día Base*, *Hoja SOS*, registro de gastos y comparativa Día 1 vs. Día 30
-- [ ] Sistema de acceso por clave local + respaldo exportable (JSON / código)
+## Etapa 3 — Webapp Completa de 30 Días *(COMPLETADA ✓)*
+- [x] Incorporar las 4 semanas / 30 días interactivos (10 min/día) conectados al contenido oficial (`producto/webapp/sistema/`)
+- [x] Módulos interactivos: *Triple Ancla*, *Día Base*, *Hoja SOS* (con respiración 60s), *Descarga Mental* (3 min), registro de gastos *Regla 3–2–1* y comparativa Día 1 vs. Día 30
+- [x] Sistema de acceso por clave local en 2 niveles (**Esencial \$99**: Semana 1 + SOS / **Completa \$199**: 30 días + todas las herramientas) + muestra Día 1 gratis + respaldo exportable JSON
 
 ## Etapa 4 — Validación Comercial con Adultos + Máquina de Marketing *(EN CURSO)*
 - [x] Activar generador automático de Carruseles (`HTML → PNG 1080×1350`) + Lote 1 de 4 carruseles (24 slides) y galería móvil

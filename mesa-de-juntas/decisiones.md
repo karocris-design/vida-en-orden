@@ -14,6 +14,13 @@ Registro vivo de acuerdos tomados en la Mesa de Juntas.
 6. **Máquina de Marketing (próxima fase):** Carruseles `HTML → PNG 1080×1350` + Reels *faceless* con demos de webapp y `FFmpeg`.
 7. **Fuente editorial incorporada:** Se descargó `Orden y crecimiento personal.pdf` (89 páginas) desde Google Drive y se extrajo su texto base para alinear el Test V.I.D.A. y preparar la auditoría editorial de Etapa 2.
 
+## 2026-11-27 — Escalera Híbrida de Valor (App desde la primera compra)
+
+1. **Incluir parte real de la App desde la Edición Esencial (\$99 MXN):** Para animar la primera compra y evitar la percepción de "solo un PDF", la edición de \$99 incluye el libro PDF (87 págs. pantalla + impresión) + **Semana 1 interactiva (Días 1–7) + Hoja SOS + Descarga Mental** en el celular.
+2. **Edición Completa (\$199 MXN):** Desbloquea las 4 semanas (30 días), *Día Base*, *Triple Ancla*, *Dinero Regla 3–2–1* y *Comparativa Día 1 vs. Día 30*, con respaldo exportable sin cuentas.
+3. **Muestra gratuita (Día 1):** Desde el final del Test V.I.D.A. cualquier persona puede probar gratis el Día 1 de la app antes de comprar.
+4. **Llaves locales (\$0):** Desbloqueo inmediato por clave o enlace (`?clave=ESENCIAL-2026` / `?clave=COMPLETA-2026`).
+
 ## 2026-11-27 — Cierre de Etapa 2 (PDF Editorial Coherente v2)
 
 1. **Reconstrucción en pipeline propio (Opción A):** Se generó el sistema completo desde `producto/sistema-30-dias/contenido.json` + `generar_pdf.py` usando los tokens exactos de `marca/design-tokens.json` (*Lora* + *Plus Jakarta Sans*, paleta crema/salvia/terracota), produciendo **2 ediciones de 87 páginas** (Digital Editorial + Imprimible ahorro de tinta) con metadatos 100% anónimos y 0 desbordes verificados.
