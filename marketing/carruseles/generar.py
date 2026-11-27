@@ -5,6 +5,7 @@ Genera diapositivas PNG 1080x1350 conectadas a marca/design-tokens.json.
 Funciona igual en Linux (nube) y macOS.
 """
 
+import base64
 import html
 import json
 import os
@@ -17,6 +18,25 @@ REPO_ROOT = BASE_DIR.parent.parent
 TOKENS_PATH = REPO_ROOT / "marca" / "design-tokens.json"
 DATA_PATH = BASE_DIR / "carruseles.json"
 OUT_DIR = BASE_DIR / "output"
+
+_IMG_CACHE = {}
+
+
+def load_data_uri(rel_path: str) -> str:
+    if not rel_path:
+        return ""
+    if rel_path in _IMG_CACHE:
+        return _IMG_CACHE[rel_path]
+    full = BASE_DIR / rel_path
+    if not full.exists():
+        return ""
+    ext = full.suffix.lower().lstrip(".")
+    mime = "image/jpeg" if ext in ("jpg", "jpeg") else f"image/{ext}"
+    b64 = base64.b64encode(full.read_bytes()).decode("ascii")
+    uri = f"data:{mime};base64,{b64}"
+    _IMG_CACHE[rel_path] = uri
+    return uri
+
 
 RADAR_SVG = """
 <svg viewBox="-50 0 460 310" width="420" height="283" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -48,22 +68,28 @@ def esc(text: str) -> str:
     return html.escape(str(text or ""))
 
 
-def render_body(slide: dict, accent: str) -> str:
+def render_body(slide: dict, carousel: dict, accent: str) -> str:
     stype = slide["type"]
 
     if stype == "cover":
+        img_uri = load_data_uri(slide.get("image") or carousel.get("coverImage", ""))
+        photo_html = f"""
+          <div class="cover-photo-frame">
+            <img src="{img_uri}" alt="" class="cover-photo" />
+          </div>
+        """ if img_uri else ""
+        cover_class = "cover-wrap has-photo" if img_uri else "cover-wrap"
         return f"""
-        <div class="cover-wrap">
-          <div class="accent-bar" style="background: {accent};"></div>
-          <p class="eyebrow" style="color: {accent};">{esc(slide['eyebrow'])}</p>
-          <h1 class="cover-title">
-            {esc(slide['headline'])}
-            <span class="cover-highlight" style="color: {accent};">{esc(slide['highlight'])}</span>
-          </h1>
-          <p class="cover-subtitle">{esc(slide['subtitle'])}</p>
-          <div class="cover-footer-chip">
-            <span class="chip-dot" style="background: {accent};"></span>
-            <span>Método V.I.D.A. · Orden simple en 10 min/día</span>
+        <div class="{cover_class}">
+          {photo_html}
+          <div class="cover-copy">
+            <div class="accent-bar" style="background: {accent};"></div>
+            <p class="eyebrow" style="color: {accent};">{esc(slide['eyebrow'])}</p>
+            <h1 class="cover-title">
+              {esc(slide['headline'])}
+              <span class="cover-highlight" style="color: {accent};">{esc(slide['highlight'])}</span>
+            </h1>
+            <p class="cover-subtitle">{esc(slide['subtitle'])}</p>
           </div>
         </div>
         """
@@ -89,10 +115,17 @@ def render_body(slide: dict, accent: str) -> str:
         """
 
     if stype == "concept":
+        img_uri = load_data_uri(slide.get("image") or carousel.get("conceptImage", ""))
+        strip_html = f"""
+          <div class="concept-photo-strip">
+            <img src="{img_uri}" alt="" />
+          </div>
+        """ if img_uri else ""
         return f"""
         <div class="content-wrap">
           <p class="eyebrow" style="color: {accent};">{esc(slide['eyebrow'])}</p>
-          <h2 class="slide-title">{esc(slide['headline'])}</h2>
+          <h2 class="slide-title concept-title">{esc(slide['headline'])}</h2>
+          {strip_html}
           <div class="paper-card concept-main">
             <p class="body-lg">{esc(slide['body'])}</p>
           </div>
@@ -166,9 +199,26 @@ def build_slide_html(tokens: dict, carousel: dict, slide: dict, idx: int, total:
         for i in range(total)
     )
     footer_right = "Guarda este post ↗" if idx == total - 1 else "Desliza →"
-    body_html = render_body(slide, accent)
+    body_html = render_body(slide, carousel, accent)
 
     bg_class = "theme-sage" if is_dark else ("theme-warm" if is_warm else "theme-paper")
+    quote_bg_uri = ""
+    if is_dark:
+        quote_bg_uri = load_data_uri("assets/bg-calma-sage.jpg")
+    elif is_warm:
+        quote_bg_uri = load_data_uri("assets/bg-pausa-warm.jpg")
+
+    quote_bg_style = ""
+    if is_dark and quote_bg_uri:
+        quote_bg_style = (
+            f"background-image: linear-gradient(155deg, rgba(44, 58, 47, 0.72) 0%, rgba(34, 46, 37, 0.86) 100%), "
+            f"url('{quote_bg_uri}'); background-size: cover; background-position: center;"
+        )
+    elif is_warm and quote_bg_uri:
+        quote_bg_style = (
+            f"background-image: linear-gradient(160deg, rgba(247, 241, 231, 0.78) 0%, rgba(238, 229, 214, 0.88) 100%), "
+            f"url('{quote_bg_uri}'); background-size: cover; background-position: center;"
+        )
 
     return f"""<!DOCTYPE html>
 <html lang="es">
@@ -352,52 +402,56 @@ def build_slide_html(tokens: dict, carousel: dict, slide: dict, idx: int, total:
       flex-direction: column;
       justify-content: center;
     }}
+    .cover-wrap.has-photo {{
+      justify-content: flex-start;
+      gap: 34px;
+    }}
+    .cover-photo-frame {{
+      width: 100%;
+      height: 455px;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1.5px solid {colors['border']};
+      box-shadow: 0 18px 40px rgba(35, 35, 32, 0.09);
+      background: {colors['bgMuted']};
+    }}
+    .cover-photo {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }}
+    .cover-copy {{
+      display: flex;
+      flex-direction: column;
+    }}
     .accent-bar {{
-      width: 92px;
-      height: 6px;
+      width: 84px;
+      height: 5px;
       border-radius: 999px;
-      margin-bottom: 34px;
+      margin-bottom: 22px;
     }}
     .cover-title {{
       font-family: {tokens['typography']['fontHeading']};
-      font-size: 74px;
+      font-size: 60px;
       font-weight: 500;
-      line-height: 1.14;
+      line-height: 1.15;
       letter-spacing: -0.02em;
       color: {colors['textPrimary']};
-      margin-bottom: 36px;
+      margin-bottom: 22px;
     }}
     .cover-highlight {{
       display: block;
-      margin-top: 10px;
+      margin-top: 6px;
       font-style: italic;
       font-weight: 600;
     }}
     .cover-subtitle {{
-      font-size: 32px;
-      line-height: 1.48;
+      font-size: 29px;
+      line-height: 1.44;
       color: {colors['textSecondary']};
-      max-width: 820px;
-      margin-bottom: 48px;
-    }}
-    .cover-footer-chip {{
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      align-self: flex-start;
-      background: #FFFFFF;
-      border: 1.5px solid {colors['border']};
-      padding: 16px 26px;
-      border-radius: 999px;
-      font-size: 23px;
-      font-weight: 600;
-      color: {colors['textPrimary']};
-      box-shadow: 0 8px 24px rgba(35, 35, 32, 0.05);
-    }}
-    .chip-dot {{
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
+      max-width: 860px;
     }}
 
     /* PAPER CARDS */
@@ -469,13 +523,33 @@ def build_slide_html(tokens: dict, carousel: dict, slide: dict, idx: int, total:
     }}
 
     /* CONCEPT */
+    .concept-title {{
+      margin-bottom: 26px;
+      font-size: 52px;
+    }}
+    .concept-photo-strip {{
+      width: 100%;
+      height: 220px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1.5px solid {colors['border']};
+      margin-bottom: 24px;
+      box-shadow: 0 10px 26px rgba(35, 35, 32, 0.06);
+    }}
+    .concept-photo-strip img {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 62%;
+      display: block;
+    }}
     .concept-main {{
-      margin-bottom: 30px;
-      padding: 44px 46px;
+      margin-bottom: 24px;
+      padding: 34px 40px;
     }}
     .body-lg {{
-      font-size: 34px;
-      line-height: 1.52;
+      font-size: 31px;
+      line-height: 1.48;
       color: {colors['textPrimary']};
     }}
     .callout-card {{
@@ -626,7 +700,7 @@ def build_slide_html(tokens: dict, carousel: dict, slide: dict, idx: int, total:
   </style>
 </head>
 <body>
-  <div class="canvas {bg_class}">
+  <div class="canvas {bg_class}" style="{quote_bg_style}">
     <header class="slide-top">
       <div class="brand-lockup">
         <span class="brand-name">{esc(tokens['brand']['name'])}</span>

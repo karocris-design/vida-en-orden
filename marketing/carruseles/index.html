@@ -288,7 +288,7 @@
       }
     }
 
-    fetch('./output/manifest.json?v=1')
+    fetch('./output/manifest.json?v=2')
       .then(r => r.json())
       .then(data => {
         root.innerHTML = '';
@@ -298,12 +298,12 @@
 
           const slidesHtml = c.slides.map((src, idx) => `
             <div class="slide-item">
-              <a href="${src}" target="_blank" rel="noopener">
-                <img src="${src}" alt="Carrusel ${c.numero} Slide ${idx + 1}" loading="lazy" />
+              <a href="${src}?v=2" target="_blank" rel="noopener">
+                <img src="${src}?v=2" alt="Carrusel ${c.numero} Slide ${idx + 1}" loading="lazy" />
               </a>
               <div class="slide-actions">
                 <span>Slide ${idx + 1} / ${c.slides.length}</span>
-                <a class="slide-dl" href="${src}" download="${c.id}-slide-0${idx + 1}.png">Guardar PNG</a>
+                <a class="slide-dl" href="${src}?v=2" download="${c.id}-slide-0${idx + 1}.png">Guardar PNG</a>
               </div>
             </div>
           `).join('');

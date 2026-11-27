@@ -6,8 +6,9 @@ Diseñada para funcionar **igual en la nube (Linux) y localmente en tu Mac**, al
 
 ### 1. Máquina de Carruseles (`marketing/carruseles/`)
 - **Formato:** PNG 1080×1350 (Instagram y TikTok) y 1000×1500 (Pinterest).
-- **Flujo:** Guion en JSON/Markdown → Plantilla HTML/CSS conectada a `marca/design-tokens.json` → Exportación automática de todas las diapositivas en PNG (Playwright / Chromium headless).
-- **Ventaja:** Cero edición manual en Canva; si ajustamos tipografía o colores, todos los carruseles se actualizan al instante.
+- **Flujo:** Guion en `carruseles.json` + fotografías editoriales en `assets/` + tokens de `marca/design-tokens.json` → `python3 marketing/carruseles/generar.py` → Exportación automática de todas las diapositivas en PNG (Playwright / Chromium headless).
+- **Galería móvil (iPhone):** `marketing/carruseles/index.html` permite previsualizar, descargar los PNG 1080×1350 y copiar el texto + hashtags con un toque.
+- **Ventaja:** Cero edición manual en Canva; si ajustamos tipografía, fotos o colores, todos los carruseles se actualizan al instante.
 
 ### 2. Máquina de Reels *Faceless* (`marketing/reels/`)
 - **Formato:** MP4 vertical 1080×1920 (9:16), 20–35 segundos.
